@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SlabWay | Independent Concrete Provider Matching Platform</title>
+    <meta name="description"
+        content="SlabWay helps homeowners submit concrete project details and compare available local provider options. Independent provider-matching platform for driveways, patios, slabs, repairs, stamped concrete, and walkways.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+
+    <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <div class="page-shell">
+        <div data-site-header></div>
+
+        <main id="main-content">
+            <!-- ================================
+        HOME HERO
+      ================================= -->
+            <section class="page-hero home-hero" aria-labelledby="home-hero-title">
+                <div class="container-wide">
+                    <div class="page-hero__content" data-aos="fade-up">
+                        <span class="eyebrow">Independent concrete matching</span>
+
+                        <h1 id="home-hero-title">
+                            Compare concrete provider options before you decide.
+                        </h1>
+
+                        <p class="page-hero__text">
+                            SlabWay helps homeowners submit project details, review concrete service categories,
+                            and connect with participating independent local providers. We do not perform concrete
+                            work directly.
+                        </p>
+
+                        <div class="btn-row" aria-label="Homepage actions">
+                            <a class="btn btn-primary" href="contact.html">
+                                Start a Concrete Request
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+
+                            <a class="btn btn-light" href="all-services.html">
+                                View Concrete Categories
+                            </a>
+                        </div>
+
+                        <div class="hero-clarity-strip" aria-label="Platform clarity notes">
+                            <span>Independent platform</span>
+                            <span>Compare local options</span>
+                            <span>Provider terms vary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="home-hero__mini-nav" aria-label="Popular concrete categories" data-aos="fade-left">
+                    <a href="concrete-driveways.html">Driveways</a>
+                    <a href="concrete-patios.html">Patios</a>
+                    <a href="concrete-repair.html">Repair</a>
+                </nav>
+            </section>
+
+            <!-- ================================
+        SECTION 1 — SERVICE CATEGORY CARDS
+      ================================= -->
+            <section class="section home-category" aria-labelledby="home-category-title">
+                <div class="container-wide">
+                    <div class="section-heading section-heading--split">
+                        <div data-aos="fade-up">
+                            <span class="section-kicker">Concrete categories</span>
+                            <h2 id="home-category-title">Start with the type of concrete request.</h2>
+                        </div>
+
+                        <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                            Choose a category, review the project factors, and use SlabWay to submit details
+                            for comparison with participating independent provider options.
+                        </p>
+                    </div>
+
+                    <div class="home-category__grid">
+                        <a class="home-category__card" href="concrete-driveways.html"
+                            style="--card-image: url('../images/service-driveways.jpg')" data-aos="fade-up">
+                            <span class="home-category__icon">
+                                <i data-lucide="road" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="home-category__content">
+                                <h3>Concrete Driveways</h3>
+                                <p>Compare options for driveway replacement, surface updates, access notes, drainage,
+                                    and finish expectations.</p>
+                                <span class="home-category__link">View category</span>
+                            </span>
+                        </a>
+
+                        <a class="home-category__card" href="concrete-patios.html"
+                            style="--card-image: url('../images/service-patios.jpg')" data-aos="fade-up"
+                            data-aos-delay="70">
+                            <span class="home-category__icon">
+                                <i data-lucide="layout-panel-top" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="home-category__content">
+                                <h3>Concrete Patios</h3>
+                                <p>Review provider options for backyard patio areas, finish preferences, access, and
+                                    connection points.</p>
+                                <span class="home-category__link">View category</span>
+                            </span>
+                        </a>
+
+                        <a class="home-category__card" href="concrete-slabs.html"
+                            style="--card-image: url('../images/service-slabs.jpg')" data-aos="fade-up"
+                            data-aos-delay="140">
+                            <span class="home-category__icon">
+                                <i data-lucide="box" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="home-category__content">
+                                <h3>Concrete Slabs</h3>
+                                <p>Explore options for utility pads, shed slabs, garage pads, level areas, and
+                                    preparation details.</p>
+                                <span class="home-category__link">View category</span>
+                            </span>
+                        </a>
+
+                        <a class="home-category__card" href="concrete-repair.html"
+                            style="--card-image: url('../images/service-repair.jpg')" data-aos="fade-up">
+                            <span class="home-category__icon">
+                                <i data-lucide="wrench" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="home-category__content">
+                                <h3>Concrete Repair</h3>
+                                <p>Compare provider responses for cracks, uneven sections, surface wear, patching, and
+                                    assessment needs.</p>
+                                <span class="home-category__link">View category</span>
+                            </span>
+                        </a>
+
+                        <a class="home-category__card" href="stamped-concrete.html"
+                            style="--card-image: url('../images/service-stamped.jpg')" data-aos="fade-up"
+                            data-aos-delay="70">
+                            <span class="home-category__icon">
+                                <i data-lucide="shapes" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="home-category__content">
+                                <h3>Stamped Concrete</h3>
+                                <p>Prepare pattern, color, sealant, surface use, and finish preference notes before
+                                    comparing options.</p>
+                                <span class="home-category__link">View category</span>
+                            </span>
+                        </a>
+
+                        <a class="home-category__card" href="concrete-walkways.html"
+                            style="--card-image: url('../images/service-walkways.jpg')" data-aos="fade-up"
+                            data-aos-delay="140">
+                            <span class="home-category__icon">
+                                <i data-lucide="footprints" aria-hidden="true"></i>
+                            </span>
+
+                            <span class="home-category__content">
+                                <h3>Concrete Walkways</h3>
+                                <p>Compare options for paths, entry connections, slopes, transitions, drainage, and
+                                    surrounding surfaces.</p>
+                                <span class="home-category__link">View category</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 2 — PLATFORM INTRO
+      ================================= -->
+            <section class="section home-platform" aria-labelledby="home-platform-title">
+                <div class="container-wide">
+                    <div class="home-platform__grid">
+                        <div class="home-platform__photos" data-aos="fade-right">
+                            <figure class="home-platform__photo home-platform__photo--large photo-zoom">
+                                <img src="assets/images/about-1.jpg"
+                                    alt="Concrete surface and residential project planning" loading="lazy" width="820"
+                                    height="720">
+                            </figure>
+
+                            <figure class="home-platform__photo home-platform__photo--small photo-zoom">
+                                <img src="assets/images/about-2.jpg" alt="Finished concrete texture detail"
+                                    loading="lazy" width="520" height="420">
+                            </figure>
+
+                            <div class="home-platform__badge">
+                                <strong>Not a concrete contractor.</strong>
+                                <span>SlabWay helps organize the request and compare participating provider
+                                    options.</span>
+                            </div>
+                        </div>
+
+                        <div class="home-platform__content" data-aos="fade-left">
+                            <span class="section-kicker">How SlabWay fits</span>
+                            <h2 id="home-platform-title">A clearer way to begin a concrete project request.</h2>
+
+                            <p class="lead">
+                                Concrete projects can depend on size, surface condition, access, finish goals,
+                                drainage, preparation, and local provider availability. SlabWay is built to help
+                                homeowners share the right details before deciding how to continue.
+                            </p>
+
+                            <p class="text-muted">
+                                SlabWay is an independent provider-matching platform. We do not install, repair,
+                                inspect, or guarantee concrete work. Participating providers are independent and
+                                provide their own pricing, availability, warranties, and service terms.
+                            </p>
+
+                            <div class="home-platform__cards">
+                                <article class="home-platform__info-card">
+                                    <i data-lucide="clipboard-check" aria-hidden="true"></i>
+                                    <strong>Organized request flow</strong>
+                                    <small>Share project category, scope notes, timeline, location context, and surface
+                                        details.</small>
+                                </article>
+
+                                <article class="home-platform__info-card">
+                                    <i data-lucide="git-compare" aria-hidden="true"></i>
+                                    <strong>Provider option comparison</strong>
+                                    <small>Review independent provider responses before choosing whether to
+                                        continue.</small>
+                                </article>
+                            </div>
+
+                            <div class="btn-row">
+                                <a class="btn btn-dark" href="about.html">
+                                    Learn About SlabWay
+                                    <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 3 — STICKY PROVIDER PATH
+      ================================= -->
+            <section class="section home-path" aria-labelledby="home-path-title">
+                <div class="container-wide">
+                    <div class="home-path__grid">
+                        <div class="home-path__sticky sticky-col" data-aos="fade-up">
+                            <span class="section-kicker">Request path</span>
+                            <h2 id="home-path-title">From project details to provider comparison.</h2>
+
+                            <p class="lead">
+                                SlabWay keeps the process focused on homeowner choice. Submitting a request does
+                                not create a service agreement, and final terms come from participating providers.
+                            </p>
+
+                            <div class="aggregator-note">
+                                SlabWay does not perform concrete work directly. Homeowners should verify provider
+                                licensing, insurance, qualifications, and project terms before hiring.
+                            </div>
+                        </div>
+
+                        <div class="home-path__steps">
+                            <article class="home-path__step" data-aos="fade-up">
+                                <i data-lucide="file-input" aria-hidden="true"></i>
+                                <div>
+                                    <span class="home-path__meta">Step one</span>
+                                    <h3>Submit project details</h3>
+                                    <p>Start with category, approximate size, surface condition, access notes, finish
+                                        goals, and timing preferences.</p>
+                                </div>
+                            </article>
+
+                            <article class="home-path__step" data-aos="fade-up">
+                                <i data-lucide="list-checks" aria-hidden="true"></i>
+                                <div>
+                                    <span class="home-path__meta">Step two</span>
+                                    <h3>Compare provider responses</h3>
+                                    <p>Participating providers may offer different scopes, timelines, pricing
+                                        structures, preparation notes, and service terms.</p>
+                                </div>
+                            </article>
+
+                            <article class="home-path__step" data-aos="fade-up">
+                                <i data-lucide="messages-square" aria-hidden="true"></i>
+                                <div>
+                                    <span class="home-path__meta">Step three</span>
+                                    <h3>Ask about scope and terms</h3>
+                                    <p>Review details such as removal, surface prep, finish type, scheduling, warranty
+                                        terms, and provider-specific conditions.</p>
+                                </div>
+                            </article>
+
+                            <article class="home-path__step" data-aos="fade-up">
+                                <i data-lucide="hand-pointer" aria-hidden="true"></i>
+                                <div>
+                                    <span class="home-path__meta">Step four</span>
+                                    <h3>Choose whether to continue</h3>
+                                    <p>You decide whether to contact, compare further, pause, or continue with an
+                                        independent provider.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 4 — ICON REVEAL CARDS
+      ================================= -->
+            <section class="section home-icon-reveal" aria-labelledby="home-icon-reveal-title">
+                <div class="container-wide">
+                    <div class="section-heading section-heading--center" data-aos="fade-up">
+                        <span class="section-kicker">Comparison factors</span>
+                        <h2 id="home-icon-reveal-title">Concrete requests are easier to compare with clear details.</h2>
+                        <p class="lead">
+                            These are common factors homeowners can prepare before reviewing provider options.
+                        </p>
+                    </div>
+
+                    <div class="home-icon-reveal__grid">
+                        <article class="home-icon-reveal__card" data-aos="fade-up">
+                            <h3>Project Scope</h3>
+                            <i data-lucide="ruler" aria-hidden="true"></i>
+                            <p class="home-icon-reveal__hidden">
+                                Share approximate dimensions, surface use, and whether the request involves new
+                                concrete,
+                                replacement, repair, or decorative finish planning.
+                            </p>
+                            <a class="home-icon-reveal__link" href="all-services.html">Compare categories</a>
+                        </article>
+
+                        <article class="home-icon-reveal__card" data-aos="fade-up" data-aos-delay="60">
+                            <h3>Surface Condition</h3>
+                            <i data-lucide="scan-line" aria-hidden="true"></i>
+                            <p class="home-icon-reveal__hidden">
+                                Existing cracks, uneven areas, drainage concerns, or worn surfaces may affect how
+                                providers
+                                describe available options.
+                            </p>
+                            <a class="home-icon-reveal__link" href="concrete-repair.html">Review repair</a>
+                        </article>
+
+                        <article class="home-icon-reveal__card" data-aos="fade-up" data-aos-delay="120">
+                            <h3>Timeline</h3>
+                            <i data-lucide="calendar-clock" aria-hidden="true"></i>
+                            <p class="home-icon-reveal__hidden">
+                                Availability and scheduling vary by provider, location, season, project scope, weather,
+                                and site readiness.
+                            </p>
+                            <a class="home-icon-reveal__link" href="contact.html">Start request</a>
+                        </article>
+
+                        <article class="home-icon-reveal__card" data-aos="fade-up">
+                            <h3>Access & Prep</h3>
+                            <i data-lucide="truck" aria-hidden="true"></i>
+                            <p class="home-icon-reveal__hidden">
+                                Notes about gates, slopes, parking, demolition, old-surface removal, or backyard access
+                                can help providers respond.
+                            </p>
+                            <a class="home-icon-reveal__link" href="contact.html">Share details</a>
+                        </article>
+
+                        <article class="home-icon-reveal__card" data-aos="fade-up" data-aos-delay="60">
+                            <h3>Provider Availability</h3>
+                            <i data-lucide="radar" aria-hidden="true"></i>
+                            <p class="home-icon-reveal__hidden">
+                                Participating provider availability may differ by location, category, project size,
+                                season, and requested timeline.
+                            </p>
+                            <a class="home-icon-reveal__link" href="about.html">How it works</a>
+                        </article>
+
+                        <article class="home-icon-reveal__card" data-aos="fade-up" data-aos-delay="120">
+                            <h3>Quote Details</h3>
+                            <i data-lucide="file-search" aria-hidden="true"></i>
+                            <p class="home-icon-reveal__hidden">
+                                Compare provider-supplied details such as included scope, preparation, finish,
+                                scheduling, warranty, and service terms.
+                            </p>
+                            <a class="home-icon-reveal__link" href="contact.html">Start comparing</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 5 — DUAL PHOTO HOVER
+      ================================= -->
+            <section class="section home-dual-photo" aria-labelledby="home-dual-photo-title" data-home-dual-photo>
+                <div class="container-wide">
+                    <div class="home-dual-photo__grid">
+                        <div class="home-dual-photo__photos" data-aos="fade-right">
+                            <div class="home-dual-photo__panel is-active" data-home-dual-panel="residential"
+                                tabindex="0" style="--panel-image: url('../images/process-1.jpg')">
+                                <span>Residential scope</span>
+                            </div>
+
+                            <div class="home-dual-photo__panel" data-home-dual-panel="finish" tabindex="0"
+                                style="--panel-image: url('../images/process-2.jpg')">
+                                <span>Surface finish</span>
+                            </div>
+                        </div>
+
+                        <div class="home-dual-photo__content" data-aos="fade-left">
+                            <span class="section-kicker">Before choosing</span>
+                            <h2 id="home-dual-photo-title">Compare the fit, not just the category name.</h2>
+
+                            <p class="lead" data-home-dual-text>
+                                Residential concrete requests often depend on access, surface size, existing conditions,
+                                drainage, and how clearly the project scope is shared before comparing provider options.
+                            </p>
+
+                            <div class="home-dual-photo__chips" aria-label="Concrete comparison topics">
+                                <button class="home-dual-photo__chip is-active" type="button"
+                                    data-home-dual-chip="residential">
+                                    Residential scope
+                                </button>
+                                <button class="home-dual-photo__chip" type="button" data-home-dual-chip="finish">
+                                    Finish goals
+                                </button>
+                                <button class="home-dual-photo__chip" type="button" data-home-dual-chip="access">
+                                    Access notes
+                                </button>
+                                <button class="home-dual-photo__chip" type="button" data-home-dual-chip="terms">
+                                    Provider terms
+                                </button>
+                            </div>
+
+                            <p class="home-dual-photo__note">
+                                SlabWay helps you begin the request. Final pricing, availability, service scope,
+                                warranties, and terms are provided by participating independent providers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 6 — SERVICES SWIPER
+      ================================= -->
+            <section class="section home-service-swiper" aria-labelledby="home-service-swiper-title">
+                <div class="container-wide">
+                    <div class="home-service-swiper__top">
+                        <div class="section-heading" data-aos="fade-up">
+                            <span class="section-kicker">Service preview</span>
+                            <h2 id="home-service-swiper-title">Explore concrete categories in a faster way.</h2>
+                            <p class="lead">
+                                Swipe through common request types and open the category that best matches your project.
+                            </p>
+                        </div>
+
+                        <div class="slider-controls" data-aos="fade-up">
+                            <button class="slider-btn" type="button" aria-label="Previous service"
+                                data-home-service-prev>
+                                <i data-lucide="arrow-left" aria-hidden="true"></i>
+                            </button>
+
+                            <div class="slider-fraction" data-home-service-pagination></div>
+
+                            <button class="slider-btn" type="button" aria-label="Next service" data-home-service-next>
+                                <i data-lucide="arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="swiper" data-home-service-swiper data-aos="fade-up">
+                        <div class="swiper-wrapper" data-home-service-swiper-wrapper></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 7 — PARALLAX CLARITY
+      ================================= -->
+            <section class="home-parallax" data-parallax aria-labelledby="home-parallax-title">
+                <div class="home-parallax__bg" data-parallax-layer></div>
+
+                <div class="container-wide home-parallax__inner">
+                    <div class="home-parallax__card" data-aos="fade-up">
+                        <div>
+                            <span class="section-kicker">Concrete clarity</span>
+                            <h2 id="home-parallax-title">
+                                Concrete projects depend on site conditions, finish goals, access, and provider
+                                availability.
+                            </h2>
+                            <p>
+                                Use SlabWay to describe the request clearly, then review available local provider
+                                options
+                                before deciding whether to continue.
+                            </p>
+                        </div>
+
+                        <div class="btn-row">
+                            <a class="btn btn-primary" href="contact.html">
+                                Start a Request
+                                <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 8 — COMPARISON ACCORDION
+      ================================= -->
+            <section class="section home-compare" aria-labelledby="home-compare-title">
+                <div class="container-wide">
+                    <div class="home-compare__grid">
+                        <aside class="home-compare__aside" data-aos="fade-right">
+                            <span class="section-kicker">Questions to compare</span>
+                            <h2 id="home-compare-title">Important details before choosing a provider.</h2>
+                            <p class="lead">
+                                These questions help keep the process transparent and aggregator-safe.
+                            </p>
+
+                            <div class="home-compare__aside-card">
+                                <i data-lucide="shield-check" aria-hidden="true"></i>
+                                <h3>Homeowner review matters.</h3>
+                                <p>
+                                    Always verify provider license, insurance, qualifications, project scope,
+                                    written terms, and warranty details before hiring.
+                                </p>
+                            </div>
+                        </aside>
+
+                        <div class="accordion" data-accordion data-open-first data-aos="fade-left">
+                            <article class="accordion-item is-open" data-accordion-item>
+                                <button class="accordion-trigger" type="button" data-accordion-trigger>
+                                    <span>What should I compare before choosing a provider?</span>
+                                    <span class="accordion-icon" aria-hidden="true"></span>
+                                </button>
+                                <div class="accordion-panel" data-accordion-panel>
+                                    <div class="accordion-panel__inner">
+                                        Compare provider-supplied scope, surface preparation, finish details, timeline,
+                                        warranty terms, pricing structure, licensing, insurance, and communication
+                                        style.
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="accordion-item" data-accordion-item>
+                                <button class="accordion-trigger" type="button" data-accordion-trigger>
+                                    <span>Does this site perform concrete work directly?</span>
+                                    <span class="accordion-icon" aria-hidden="true"></span>
+                                </button>
+                                <div class="accordion-panel" data-accordion-panel>
+                                    <div class="accordion-panel__inner">
+                                        No. SlabWay is an independent provider-matching platform. We do not install,
+                                        repair, inspect, or guarantee concrete work.
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="accordion-item" data-accordion-item>
+                                <button class="accordion-trigger" type="button" data-accordion-trigger>
+                                    <span>What can affect concrete pricing?</span>
+                                    <span class="accordion-icon" aria-hidden="true"></span>
+                                </button>
+                                <div class="accordion-panel" data-accordion-panel>
+                                    <div class="accordion-panel__inner">
+                                        Pricing may depend on provider terms, project size, access, surface condition,
+                                        demolition or removal needs, finish type, materials, timing, location, and site
+                                        preparation.
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="accordion-item" data-accordion-item>
+                                <button class="accordion-trigger" type="button" data-accordion-trigger>
+                                    <span>Can I request a specific concrete category?</span>
+                                    <span class="accordion-icon" aria-hidden="true"></span>
+                                </button>
+                                <div class="accordion-panel" data-accordion-panel>
+                                    <div class="accordion-panel__inner">
+                                        Yes. You can select driveways, patios, slabs, repair, stamped concrete,
+                                        walkways, or describe your request in the message field.
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="accordion-item" data-accordion-item>
+                                <button class="accordion-trigger" type="button" data-accordion-trigger>
+                                    <span>What happens after I submit a request?</span>
+                                    <span class="accordion-icon" aria-hidden="true"></span>
+                                </button>
+                                <div class="accordion-panel" data-accordion-panel>
+                                    <div class="accordion-panel__inner">
+                                        Your submitted details may be used to help connect you with participating
+                                        independent
+                                        providers. Provider availability, response, pricing, and terms can vary.
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 9 — SCENARIO SLIDER
+      ================================= -->
+            <section class="section home-scenario" aria-labelledby="home-scenario-title">
+                <div class="container-wide">
+                    <div class="home-scenario__top">
+                        <div class="section-heading" data-aos="fade-up">
+                            <span class="section-kicker">Project scenarios</span>
+                            <h2 id="home-scenario-title">Prepare better notes before comparing options.</h2>
+                            <p class="lead">
+                                Every provider may evaluate concrete requests differently. These scenarios show
+                                what homeowners can prepare before starting.
+                            </p>
+                        </div>
+
+                        <div class="slider-controls" data-aos="fade-up">
+                            <button class="slider-btn" type="button" aria-label="Previous scenario"
+                                data-home-scenario-prev>
+                                <i data-lucide="arrow-left" aria-hidden="true"></i>
+                            </button>
+
+                            <div class="slider-fraction" data-home-scenario-pagination></div>
+
+                            <button class="slider-btn" type="button" aria-label="Next scenario" data-home-scenario-next>
+                                <i data-lucide="arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="swiper" data-home-scenario-swiper data-aos="fade-up">
+                        <div class="swiper-wrapper" data-home-scenario-wrapper></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 10 — TRUST / COMPLIANCE STRIP
+      ================================= -->
+            <section class="section home-clarity" aria-labelledby="home-clarity-title">
+                <div class="container-wide">
+                    <div class="home-clarity__panel" data-aos="fade-up">
+                        <div class="section-heading">
+                            <span class="section-kicker">Platform clarity</span>
+                            <h2 id="home-clarity-title">Built for transparent concrete provider comparison.</h2>
+                            <p class="lead">
+                                SlabWay is not a contractor, installer, repair company, inspection company,
+                                or construction crew.
+                            </p>
+                        </div>
+
+                        <div class="home-clarity__grid">
+                            <article class="home-clarity__item">
+                                <i data-lucide="network" aria-hidden="true"></i>
+                                <strong>Independent platform</strong>
+                                <span>SlabWay helps connect homeowners with participating provider options.</span>
+                            </article>
+
+                            <article class="home-clarity__item">
+                                <i data-lucide="file-text" aria-hidden="true"></i>
+                                <strong>Provider details vary</strong>
+                                <span>Pricing, scheduling, warranties, and service terms come from providers.</span>
+                            </article>
+
+                            <article class="home-clarity__item">
+                                <i data-lucide="mouse-pointer-click" aria-hidden="true"></i>
+                                <strong>Homeowner chooses</strong>
+                                <span>You decide whether to continue after reviewing available options.</span>
+                            </article>
+
+                            <article class="home-clarity__item">
+                                <i data-lucide="badge-check" aria-hidden="true"></i>
+                                <strong>Verify details</strong>
+                                <span>Homeowners should verify license, insurance, and qualifications before
+                                    hiring.</span>
+                            </article>
+                        </div>
+
+                        <p class="home-clarity__disclaimer" data-config="legal.disclaimer">
+                            Disclaimer: This site is a free service to assist homeowners in connecting with local
+                            service providers.
+                            All contractors/providers are independent and this site does not warrant or guarantee any
+                            work performed.
+                            It is the responsibility of the homeowner to verify that the hired contractor furnishes the
+                            necessary
+                            license and insurance required for the work being performed. All persons depicted in a photo
+                            or video
+                            are actors or models and not contractors listed on this site.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        SECTION 11 — FINAL SERVICE NAVIGATOR
+      ================================= -->
+            <section class="section home-navigator" aria-labelledby="home-navigator-title" data-home-navigator>
+                <div class="container-wide">
+                    <div class="home-navigator__grid">
+                        <div class="home-navigator__intro" data-aos="fade-right">
+                            <span class="section-kicker">Service navigator</span>
+                            <h2 id="home-navigator-title">Choose a category and preview what to compare.</h2>
+
+                            <p class="lead">
+                                Use the navigator to open a concrete category or start a request with project details.
+                                This is not a service booking form and does not create a provider agreement.
+                            </p>
+
+                            <div class="aggregator-note">
+                                Availability, pricing, timelines, warranties, and service terms are provided by
+                                participating independent providers.
+                            </div>
+                        </div>
+
+                        <div class="home-navigator__panel" data-aos="fade-left">
+                            <div class="home-navigator__list" data-home-navigator-list></div>
+                            <div class="home-navigator__preview" data-home-navigator-preview></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================================
+        PRE-FOOTER CTA
+      ================================= -->
+            <section class="site-prefooter" aria-label="Start comparing concrete provider options">
+                <div class="container-wide">
+                    <div class="site-prefooter-cta"></div>
+                </div>
+            </section>
+        </main>
+
+        <div data-site-footer></div>
+    </div>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What should I compare before choosing a provider?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compare provider-supplied scope, surface preparation, finish details, timeline, warranty terms, pricing structure, licensing, insurance, and communication style."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this site perform concrete work directly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SlabWay is an independent provider-matching platform. It does not install, repair, inspect, or guarantee concrete work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can affect concrete pricing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pricing may depend on provider terms, project size, access, surface condition, demolition or removal needs, finish type, materials, timing, location, and site preparation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I request a specific concrete category?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Homeowners can select driveways, patios, slabs, repair, stamped concrete, walkways, or describe their request in the message field."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I submit a request?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Submitted details may be used to help connect homeowners with participating independent providers. Provider availability, response, pricing, and terms can vary."
+          }
+        }
+      ]
+    }
+  </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/global.js" defer></script>
+    <script src="assets/js/home.js" defer></script>
+</body>
+
+</html>

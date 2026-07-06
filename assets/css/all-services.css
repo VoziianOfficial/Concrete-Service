@@ -1,0 +1,1060 @@
+/* ================================
+   SlabWay All Services Page Styles
+   File: assets/css/all-services.css
+   Prefix: .catalog-*
+   ================================ */
+
+/* ================================
+   All Services Hero
+   ================================ */
+
+.catalog-hero {
+    --hero-image: url("../images/hero-services.jpg");
+}
+
+.catalog-hero .page-hero__content {
+    max-width: 920px;
+}
+
+/* ================================
+   Section 1 — Overview Cards Grid
+   ================================ */
+
+.catalog-overview {
+    background: var(--color-off-white);
+}
+
+.catalog-overview__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 44px;
+}
+
+.catalog-overview__card {
+    position: relative;
+    min-height: 390px;
+    display: grid;
+    align-content: end;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--color-black);
+    color: var(--color-white);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.catalog-overview__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.12) 0%,
+            rgba(0, 0, 0, 0.42) 44%,
+            rgba(0, 0, 0, 0.86) 100%),
+        var(--catalog-image) center / cover no-repeat;
+    transform: scale(1.01);
+    transition: transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalog-overview__card::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 54px;
+    height: 4px;
+    border-radius: 99px;
+    background: var(--color-accent);
+    transition:
+        width var(--transition-base),
+        background var(--transition-base);
+}
+
+.catalog-overview__card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-dark);
+}
+
+.catalog-overview__card:hover::before {
+    transform: scale(1.07);
+}
+
+.catalog-overview__card:hover::after {
+    width: 118px;
+    background: var(--color-blue);
+}
+
+.catalog-overview__icon {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    z-index: 2;
+    color: var(--color-white);
+}
+
+.catalog-overview__icon i,
+.catalog-overview__icon svg {
+    width: 44px;
+    height: 44px;
+    stroke-width: 1.5;
+}
+
+.catalog-overview__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 13px;
+    padding: 30px;
+}
+
+.catalog-overview__content p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 14px;
+    line-height: 1.62;
+}
+
+.catalog-overview__content span {
+    color: var(--color-blue);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.catalog-overview__card:hover .catalog-overview__content span {
+    color: var(--color-white);
+}
+
+/* ================================
+   Section 2 — Interactive Showcase
+   ================================ */
+
+.catalog-showcase {
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.catalog-showcase__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    min-height: 700px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-lg);
+    background: var(--color-black-soft);
+}
+
+.catalog-showcase__photo {
+    position: relative;
+    display: grid;
+    align-content: end;
+    overflow: hidden;
+    min-height: 700px;
+}
+
+.catalog-showcase__photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.82)),
+        var(--showcase-image, url("../images/service-driveways.jpg")) center / cover no-repeat;
+    transition: transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalog-showcase__photo:hover::before {
+    transform: scale(1.06);
+}
+
+.catalog-showcase__photo-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 16px;
+    padding: clamp(28px, 4vw, 48px);
+}
+
+.catalog-showcase__photo-icon i,
+.catalog-showcase__photo-icon svg {
+    width: 60px;
+    height: 60px;
+    color: var(--color-accent);
+    stroke-width: 1.25;
+}
+
+.catalog-showcase__photo-content p {
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.catalog-showcase__list {
+    display: grid;
+    align-content: stretch;
+    border-left: 1px solid var(--color-border-dark);
+}
+
+.catalog-showcase__button {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    align-items: center;
+    border: 0;
+    border-bottom: 1px solid var(--color-border-dark);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.74);
+    padding: 26px 28px;
+    text-align: left;
+    transition:
+        background var(--transition-base),
+        color var(--transition-base);
+}
+
+.catalog-showcase__button:last-child {
+    border-bottom: 0;
+}
+
+.catalog-showcase__button strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(18px, 1.8vw, 25px);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1.05;
+}
+
+.catalog-showcase__button small {
+    display: block;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.54);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.catalog-showcase__button i,
+.catalog-showcase__button svg {
+    width: 26px;
+    height: 26px;
+    color: var(--color-accent);
+}
+
+.catalog-showcase__button:hover,
+.catalog-showcase__button.is-active {
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+.catalog-showcase__button:hover small,
+.catalog-showcase__button.is-active small {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.catalog-showcase__button:hover i,
+.catalog-showcase__button:hover svg,
+.catalog-showcase__button.is-active i,
+.catalog-showcase__button.is-active svg {
+    color: var(--color-white);
+}
+
+/* ================================
+   Section 3 — Service Categories Swiper
+   ================================ */
+
+.catalog-swiper {
+    background: var(--color-white);
+}
+
+.catalog-swiper__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    align-items: end;
+    margin-bottom: 38px;
+}
+
+.catalog-swiper__top .section-heading {
+    max-width: 820px;
+}
+
+.catalog-swiper-card {
+    position: relative;
+    min-height: 420px;
+    display: grid;
+    align-content: end;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.catalog-swiper-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.84)),
+        var(--catalog-swiper-image) center / cover no-repeat;
+    transition: transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalog-swiper-card:hover::before {
+    transform: scale(1.07);
+}
+
+.catalog-swiper-card__content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 14px;
+    padding: 30px;
+}
+
+.catalog-swiper-card__content p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 14px;
+    line-height: 1.62;
+}
+
+.catalog-swiper-card__icon {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    z-index: 2;
+    color: var(--color-white);
+}
+
+.catalog-swiper-card__icon i,
+.catalog-swiper-card__icon svg {
+    width: 46px;
+    height: 46px;
+    stroke-width: 1.45;
+}
+
+/* ================================
+   Section 4 — Sticky Checklist
+   ================================ */
+
+.catalog-checklist {
+    background: var(--color-off-white);
+}
+
+.catalog-checklist__grid {
+    display: grid;
+    grid-template-columns: 0.78fr 1fr;
+    gap: 58px;
+    align-items: start;
+}
+
+.catalog-checklist__sticky {
+    position: sticky;
+    top: calc(var(--header-height) + 36px);
+    display: grid;
+    gap: 22px;
+}
+
+.catalog-checklist__cards {
+    display: grid;
+    gap: 15px;
+}
+
+.catalog-checklist__card {
+    position: relative;
+    min-height: 184px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    padding: 26px;
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base),
+        background var(--transition-base);
+}
+
+.catalog-checklist__card:hover {
+    transform: translateX(8px);
+    border-color: rgba(215, 25, 79, 0.38);
+    background: var(--color-white);
+    box-shadow: var(--shadow-soft);
+}
+
+.catalog-checklist__card i,
+.catalog-checklist__card svg {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 42px;
+    height: 42px;
+    color: var(--color-accent);
+    stroke-width: 1.45;
+}
+
+.catalog-checklist__card h3 {
+    max-width: 520px;
+    padding-right: 68px;
+}
+
+.catalog-checklist__card p {
+    max-width: 720px;
+    margin-top: 12px;
+    color: rgba(5, 5, 5, 0.66);
+    font-size: 15px;
+}
+
+/* ================================
+   Section 5 — Icon Reveal Factors
+   ================================ */
+
+.catalog-icon-reveal {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+}
+
+.catalog-icon-reveal__grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 46px;
+    align-items: center;
+}
+
+.catalog-icon-reveal__intro {
+    display: grid;
+    gap: 22px;
+}
+
+.catalog-icon-reveal__items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.catalog-icon-reveal__item {
+    position: relative;
+    min-height: 246px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.055);
+    padding: 24px;
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        background var(--transition-base);
+}
+
+.catalog-icon-reveal__item:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-accent);
+    background: rgba(215, 25, 79, 0.09);
+}
+
+.catalog-icon-reveal__item i,
+.catalog-icon-reveal__item svg {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 82px;
+    height: 82px;
+    color: rgba(255, 255, 255, 0.16);
+    stroke-width: 1.15;
+    transition:
+        transform var(--transition-slow),
+        color var(--transition-base);
+}
+
+.catalog-icon-reveal__item:hover i,
+.catalog-icon-reveal__item:hover svg {
+    transform: translate(-8px, -30px) scale(0.7);
+    color: var(--color-blue);
+}
+
+.catalog-icon-reveal__item h3 {
+    max-width: 260px;
+}
+
+.catalog-icon-reveal__item p {
+    margin-top: 52px;
+    opacity: 0;
+    transform: translateY(14px);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.62;
+    transition:
+        opacity var(--transition-base),
+        transform var(--transition-base);
+}
+
+.catalog-icon-reveal__item:hover p,
+.catalog-icon-reveal__item:focus-within p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================
+   Section 6 — Parallax Surface
+   ================================ */
+
+.catalog-parallax {
+    position: relative;
+    overflow: hidden;
+    min-height: 520px;
+    display: grid;
+    align-items: center;
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.catalog-parallax__bg {
+    position: absolute;
+    inset: -12% 0;
+    z-index: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+        url("../images/concrete-parallax.jpg") center / cover no-repeat;
+    will-change: transform;
+}
+
+.catalog-parallax__content {
+    position: relative;
+    z-index: 1;
+    max-width: 940px;
+    display: grid;
+    gap: 22px;
+}
+
+.catalog-parallax__content p {
+    max-width: 780px;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 18px;
+}
+
+/* ================================
+   Section 7 — Finish Hover Section
+   ================================ */
+
+.catalog-finish {
+    background: var(--color-white);
+}
+
+.catalog-finish__grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 42px;
+    align-items: center;
+}
+
+.catalog-finish__photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 560px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--color-black);
+}
+
+.catalog-finish__photo {
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.catalog-finish__photo:last-child {
+    border-right: 0;
+}
+
+.catalog-finish__photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.72)),
+        var(--finish-image) center / cover no-repeat;
+    transition:
+        transform 820ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter var(--transition-base);
+}
+
+.catalog-finish__photo:hover::before,
+.catalog-finish__photo.is-active::before {
+    transform: scale(1.08);
+    filter: saturate(1.08);
+}
+
+.catalog-finish__photo span {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+    z-index: 1;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.catalog-finish__content {
+    display: grid;
+    gap: 22px;
+}
+
+.catalog-finish__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.catalog-finish__chip {
+    min-height: 42px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 900;
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        color var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.catalog-finish__chip:hover,
+.catalog-finish__chip.is-active {
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+.catalog-finish__note {
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+    color: rgba(5, 5, 5, 0.68);
+}
+
+/* ================================
+   Section 8 — FAQ
+   ================================ */
+
+.catalog-faq {
+    background: var(--color-off-white);
+}
+
+.catalog-faq__grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.catalog-faq__intro {
+    display: grid;
+    gap: 22px;
+}
+
+.catalog-faq__card {
+    border-radius: var(--radius-lg);
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 28px;
+}
+
+.catalog-faq__card i,
+.catalog-faq__card svg {
+    width: 44px;
+    height: 44px;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+}
+
+.catalog-faq__card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+/* ================================
+   Section 9 — Related Scenarios
+   ================================ */
+
+.catalog-scenarios {
+    background: var(--color-white);
+}
+
+.catalog-scenarios__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 40px;
+}
+
+.catalog-scenarios__card {
+    min-height: 260px;
+    display: grid;
+    align-content: space-between;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-off-white);
+    padding: 22px;
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        background var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.catalog-scenarios__card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(215, 25, 79, 0.4);
+    background: var(--color-white);
+    box-shadow: var(--shadow-soft);
+}
+
+.catalog-scenarios__card i,
+.catalog-scenarios__card svg {
+    width: 46px;
+    height: 46px;
+    color: var(--color-accent);
+    stroke-width: 1.4;
+}
+
+.catalog-scenarios__card h3 {
+    margin-top: 24px;
+    font-size: 22px;
+}
+
+.catalog-scenarios__card p {
+    margin-top: 10px;
+    color: rgba(5, 5, 5, 0.66);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.catalog-scenarios__card span {
+    color: var(--color-blue);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 900;
+}
+
+/* ================================
+   Section 10 — Final Navigator
+   ================================ */
+
+.catalog-navigator {
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.catalog-navigator__header {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 38px;
+    align-items: end;
+    margin-bottom: 42px;
+}
+
+.catalog-navigator__rows {
+    display: grid;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.catalog-navigator__row {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: center;
+    min-height: 112px;
+    border-bottom: 1px solid var(--color-border-dark);
+    background: rgba(255, 255, 255, 0.045);
+    color: var(--color-white);
+    padding: 24px 28px;
+    transition:
+        background var(--transition-base),
+        color var(--transition-base);
+}
+
+.catalog-navigator__row:last-child {
+    border-bottom: 0;
+}
+
+.catalog-navigator__row:hover {
+    background: var(--color-accent);
+}
+
+.catalog-navigator__row i,
+.catalog-navigator__row svg {
+    width: 44px;
+    height: 44px;
+    color: var(--color-accent);
+    stroke-width: 1.4;
+    transition: color var(--transition-base);
+}
+
+.catalog-navigator__row:hover i,
+.catalog-navigator__row:hover svg {
+    color: var(--color-white);
+}
+
+.catalog-navigator__row strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 900;
+    letter-spacing: -0.06em;
+    line-height: 1;
+}
+
+.catalog-navigator__row span {
+    display: block;
+    max-width: 720px;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.catalog-navigator__row:hover span {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.catalog-navigator__arrow {
+    color: var(--color-blue);
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 900;
+    transition:
+        color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.catalog-navigator__row:hover .catalog-navigator__arrow {
+    color: var(--color-white);
+    transform: translateX(5px);
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+@media (max-width: 1200px) {
+    .catalog-overview__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .catalog-scenarios__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .catalog-showcase__grid,
+    .catalog-checklist__grid,
+    .catalog-icon-reveal__grid,
+    .catalog-finish__grid,
+    .catalog-faq__grid,
+    .catalog-navigator__header {
+        gap: 38px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .catalog-showcase__grid,
+    .catalog-checklist__grid,
+    .catalog-icon-reveal__grid,
+    .catalog-finish__grid,
+    .catalog-faq__grid,
+    .catalog-navigator__header {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-showcase__grid {
+        min-height: auto;
+    }
+
+    .catalog-showcase__photo {
+        min-height: 560px;
+    }
+
+    .catalog-showcase__list {
+        border-left: 0;
+        border-top: 1px solid var(--color-border-dark);
+    }
+
+    .catalog-checklist__sticky {
+        position: static;
+    }
+
+    .catalog-swiper__top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .catalog-parallax {
+        min-height: auto;
+        padding: 82px 0;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .catalog-overview__grid,
+    .catalog-icon-reveal__items,
+    .catalog-scenarios__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-finish__photos {
+        min-height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-finish__photo {
+        min-height: 330px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .catalog-finish__photo:last-child {
+        border-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog-overview__card {
+        min-height: 350px;
+    }
+
+    .catalog-showcase__photo {
+        min-height: 480px;
+    }
+
+    .catalog-showcase__button {
+        padding: 22px;
+    }
+
+    .catalog-swiper-card {
+        min-height: 390px;
+    }
+
+    .catalog-checklist__card {
+        min-height: 170px;
+        padding: 24px;
+    }
+
+    .catalog-icon-reveal__item {
+        min-height: 226px;
+    }
+
+    .catalog-icon-reveal__item p {
+        opacity: 1;
+        transform: none;
+    }
+
+    .catalog-navigator__row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        min-height: 150px;
+    }
+
+    .catalog-navigator__arrow {
+        justify-self: start;
+    }
+}
+
+@media (max-width: 640px) {
+    .catalog-overview__card {
+        min-height: 330px;
+    }
+
+    .catalog-overview__content {
+        padding: 26px 22px 38px;
+    }
+
+    .catalog-showcase__photo {
+        min-height: 430px;
+    }
+
+    .catalog-showcase__photo-content {
+        padding: 28px;
+    }
+
+    .catalog-swiper-card {
+        min-height: 360px;
+    }
+
+    .catalog-swiper-card__content {
+        padding: 24px;
+    }
+
+    .catalog-finish__photo {
+        min-height: 300px;
+    }
+
+    .catalog-finish__chips {
+        display: grid;
+    }
+
+    .catalog-finish__chip {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-overview__card {
+        min-height: 310px;
+    }
+
+    .catalog-showcase__photo {
+        min-height: 390px;
+    }
+
+    .catalog-showcase__button strong {
+        font-size: 20px;
+    }
+
+    .catalog-checklist__card i,
+    .catalog-checklist__card svg {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 18px;
+    }
+
+    .catalog-checklist__card h3 {
+        padding-right: 0;
+    }
+
+    .catalog-icon-reveal__item i,
+    .catalog-icon-reveal__item svg {
+        width: 68px;
+        height: 68px;
+    }
+
+    .catalog-scenarios__card {
+        min-height: 240px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .catalog-overview__card,
+    .catalog-swiper-card {
+        min-height: 340px;
+    }
+
+    .catalog-showcase__photo {
+        min-height: 360px;
+    }
+
+    .catalog-finish__photo {
+        min-height: 270px;
+    }
+}

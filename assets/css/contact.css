@@ -1,0 +1,715 @@
+/* ================================
+   SlabWay Contact Page Styles
+   File: assets/css/contact.css
+   Prefix: .contact-*
+   ================================ */
+
+/* ================================
+   Contact Hero
+   ================================ */
+
+.contact-hero {
+    --hero-image: url("../images/hero-contact.jpg");
+}
+
+.contact-hero .page-hero__content {
+    max-width: 900px;
+}
+
+/* ================================
+   Section 1 — Intro Clarity Strip
+   ================================ */
+
+.contact-intro {
+    background: var(--color-off-white);
+}
+
+.contact-intro__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.contact-intro__card {
+    position: relative;
+    min-height: 245px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    padding: 28px;
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        box-shadow var(--transition-base),
+        background var(--transition-base);
+}
+
+.contact-intro__card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(215, 25, 79, 0.4);
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-intro__card:nth-child(2) {
+    background: var(--color-black);
+    color: var(--color-white);
+    border-color: var(--color-border-dark);
+}
+
+.contact-intro__card i,
+.contact-intro__card svg {
+    width: 52px;
+    height: 52px;
+    color: var(--color-accent);
+    stroke-width: 1.35;
+    margin-bottom: 26px;
+}
+
+.contact-intro__card h3 {
+    max-width: 280px;
+}
+
+.contact-intro__card p {
+    margin-top: 14px;
+    color: rgba(5, 5, 5, 0.66);
+    font-size: 14px;
+    line-height: 1.62;
+}
+
+.contact-intro__card:nth-child(2) p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ================================
+   Section 2 — Main Request Form
+   ================================ */
+
+.contact-form {
+    background: var(--color-white);
+}
+
+.contact-form__grid {
+    display: grid;
+    grid-template-columns: 0.86fr 1.14fr;
+    gap: 42px;
+    align-items: stretch;
+}
+
+.contact-form__info {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    align-content: space-between;
+    gap: 32px;
+    border-radius: var(--radius-lg);
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: clamp(28px, 4vw, 46px);
+}
+
+.contact-form__info::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.86)),
+        url("../images/process-1.jpg") center / cover no-repeat;
+    opacity: 0.55;
+}
+
+.contact-form__info>* {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form__info-main {
+    display: grid;
+    gap: 22px;
+}
+
+.contact-form__details {
+    display: grid;
+    gap: 14px;
+}
+
+.contact-form__detail {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 13px;
+    align-items: start;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.07);
+    padding: 16px;
+    backdrop-filter: blur(8px);
+}
+
+.contact-form__detail i,
+.contact-form__detail svg {
+    width: 22px;
+    height: 22px;
+    color: var(--color-accent);
+    margin-top: 2px;
+}
+
+.contact-form__detail strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    line-height: 1.1;
+    margin-bottom: 5px;
+}
+
+.contact-form__detail span,
+.contact-form__detail a {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.contact-form__detail a:hover {
+    color: var(--color-blue);
+}
+
+.contact-form__note {
+    border-left: 4px solid var(--color-accent);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.contact-form__panel {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-off-white);
+    padding: clamp(24px, 4vw, 42px);
+    box-shadow: var(--shadow-soft);
+}
+
+.contact-form__panel-heading {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.contact-form__panel-heading p {
+    color: rgba(5, 5, 5, 0.66);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.contact-form__form {
+    position: relative;
+}
+
+.contact-form__disclaimer {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    padding: 16px;
+    color: rgba(5, 5, 5, 0.68);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.contact-form__submit-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.contact-form__submit-row .btn {
+    min-width: 190px;
+}
+
+.contact-form__privacy {
+    margin-top: 2px;
+}
+
+/* ================================
+   Section 3 — Service Selector Cards
+   ================================ */
+
+.contact-service-select {
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.contact-service-select__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 42px;
+}
+
+.contact-service-select__card {
+    position: relative;
+    min-height: 245px;
+    display: grid;
+    align-content: space-between;
+    overflow: hidden;
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.055);
+    color: var(--color-white);
+    padding: 24px;
+    text-align: left;
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        background var(--transition-base);
+}
+
+.contact-service-select__card:hover,
+.contact-service-select__card.is-selected {
+    transform: translateY(-6px);
+    border-color: var(--color-accent);
+    background: rgba(215, 25, 79, 0.12);
+}
+
+.contact-service-select__card i,
+.contact-service-select__card svg {
+    width: 56px;
+    height: 56px;
+    color: var(--color-accent);
+    stroke-width: 1.3;
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base);
+}
+
+.contact-service-select__card:hover i,
+.contact-service-select__card:hover svg,
+.contact-service-select__card.is-selected i,
+.contact-service-select__card.is-selected svg {
+    transform: translateY(-4px);
+    color: var(--color-blue);
+}
+
+.contact-service-select__card h3 {
+    margin-top: 34px;
+}
+
+.contact-service-select__card p {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 14px;
+    line-height: 1.58;
+}
+
+.contact-service-select__card span {
+    display: inline-flex;
+    margin-top: 18px;
+    color: var(--color-blue);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 900;
+}
+
+/* ================================
+   Section 4 — Two Photo Hover Switch
+   ================================ */
+
+.contact-photo-switch {
+    background: var(--color-white);
+}
+
+.contact-photo-switch__grid {
+    display: grid;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 42px;
+    align-items: center;
+}
+
+.contact-photo-switch__photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 560px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--color-black);
+}
+
+.contact-photo-switch__photo {
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.contact-photo-switch__photo:last-child {
+    border-right: 0;
+}
+
+.contact-photo-switch__photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.74)),
+        var(--contact-photo) center / cover no-repeat;
+    transition:
+        transform 820ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter var(--transition-base);
+}
+
+.contact-photo-switch__photo:hover::before,
+.contact-photo-switch__photo.is-active::before {
+    transform: scale(1.08);
+    filter: saturate(1.08);
+}
+
+.contact-photo-switch__photo span {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+    z-index: 1;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.contact-photo-switch__content {
+    display: grid;
+    gap: 22px;
+}
+
+.contact-photo-switch__labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.contact-photo-switch__label {
+    min-height: 42px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 900;
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        color var(--transition-base),
+        border-color var(--transition-base);
+}
+
+.contact-photo-switch__label:hover,
+.contact-photo-switch__label.is-active {
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+.contact-photo-switch__text {
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+    color: rgba(5, 5, 5, 0.68);
+}
+
+/* ================================
+   Section 5 — Contact FAQ
+   ================================ */
+
+.contact-faq {
+    background: var(--color-off-white);
+}
+
+.contact-faq__grid {
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.contact-faq__intro {
+    display: grid;
+    gap: 22px;
+}
+
+.contact-faq__card {
+    border-radius: var(--radius-lg);
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 28px;
+}
+
+.contact-faq__card i,
+.contact-faq__card svg {
+    width: 44px;
+    height: 44px;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+}
+
+.contact-faq__card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+/* ================================
+   Section 6 — Contact Parallax Reminder
+   ================================ */
+
+.contact-parallax {
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: grid;
+    align-items: center;
+    background: var(--color-black);
+    color: var(--color-white);
+}
+
+.contact-parallax__bg {
+    position: absolute;
+    inset: -12% 0;
+    z-index: 0;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
+        url("../images/concrete-parallax.jpg") center / cover no-repeat;
+    will-change: transform;
+}
+
+.contact-parallax__content {
+    position: relative;
+    z-index: 1;
+    max-width: 940px;
+    display: grid;
+    gap: 22px;
+}
+
+.contact-parallax__content p {
+    max-width: 780px;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 18px;
+}
+
+/* ================================
+   Section 7 — Disclaimer Panel
+   ================================ */
+
+.contact-disclaimer {
+    background: var(--color-white);
+}
+
+.contact-disclaimer__panel {
+    display: grid;
+    grid-template-columns: 0.72fr 1.28fr;
+    gap: 34px;
+    align-items: start;
+    border-radius: var(--radius-lg);
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: clamp(28px, 5vw, 54px);
+}
+
+.contact-disclaimer__icon {
+    display: grid;
+    align-content: start;
+    gap: 22px;
+}
+
+.contact-disclaimer__icon i,
+.contact-disclaimer__icon svg {
+    width: 78px;
+    height: 78px;
+    color: var(--color-accent);
+    stroke-width: 1.15;
+}
+
+.contact-disclaimer__content {
+    display: grid;
+    gap: 18px;
+}
+
+.contact-disclaimer__content p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.contact-disclaimer__list {
+    display: grid;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.contact-disclaimer__list li {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 12px;
+    align-items: start;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 14px;
+}
+
+.contact-disclaimer__list i,
+.contact-disclaimer__list svg {
+    width: 19px;
+    height: 19px;
+    color: var(--color-blue);
+    margin-top: 3px;
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+@media (max-width: 1200px) {
+
+    .contact-intro__grid,
+    .contact-service-select__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-form__grid,
+    .contact-photo-switch__grid,
+    .contact-faq__grid,
+    .contact-disclaimer__panel {
+        gap: 34px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .contact-form__grid,
+    .contact-photo-switch__grid,
+    .contact-faq__grid,
+    .contact-disclaimer__panel {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form__info {
+        min-height: 560px;
+    }
+
+    .contact-parallax {
+        min-height: auto;
+        padding: 82px 0;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .contact-intro__grid,
+    .contact-service-select__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-photo-switch__photos {
+        min-height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .contact-photo-switch__photo {
+        min-height: 330px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .contact-photo-switch__photo:last-child {
+        border-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-intro__card {
+        min-height: 220px;
+    }
+
+    .contact-form__info {
+        min-height: auto;
+    }
+
+    .contact-form__panel,
+    .contact-form__info {
+        padding: 30px;
+    }
+
+    .contact-form__submit-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form__submit-row .btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .contact-service-select__card {
+        min-height: 220px;
+    }
+
+    .contact-photo-switch__photo {
+        min-height: 300px;
+    }
+
+    .contact-disclaimer__icon i,
+    .contact-disclaimer__icon svg {
+        width: 62px;
+        height: 62px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .contact-form__panel,
+    .contact-form__info {
+        padding: 24px;
+    }
+
+    .contact-form__detail {
+        grid-template-columns: 30px 1fr;
+    }
+
+    .contact-photo-switch__labels {
+        display: grid;
+    }
+
+    .contact-photo-switch__label {
+        width: 100%;
+    }
+
+    .contact-parallax__content p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .contact-intro__card,
+    .contact-service-select__card {
+        padding: 24px;
+    }
+
+    .contact-form__panel,
+    .contact-form__info {
+        padding: 22px;
+        border-radius: var(--radius-md);
+    }
+
+    .contact-photo-switch__photo {
+        min-height: 280px;
+    }
+
+    .contact-disclaimer__panel {
+        padding: 26px;
+    }
+}
+
+@media (max-width: 360px) {
+    .contact-photo-switch__photo {
+        min-height: 250px;
+    }
+}
