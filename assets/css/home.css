@@ -365,6 +365,7 @@
 
 .home-platform__photo {
     position: absolute;
+    margin: 0;
     overflow: hidden;
     border-radius: var(--radius-lg);
     background: var(--color-concrete);
@@ -2694,4 +2695,3 @@
         height: 42px !important;
     }
 }
-
