@@ -344,11 +344,12 @@
     position: relative;
     min-height: 240px;
     display: grid;
-    align-content: space-between;
+    align-content: end;
     overflow: hidden;
     border: 1px solid var(--color-border-dark);
     border-radius: var(--radius-lg);
     padding: 30px;
+    padding-top: 96px;
     transition:
         transform var(--transition-base),
         border-color var(--transition-base),
@@ -372,10 +373,15 @@
 
 .home-path__step i,
 .home-path__step svg {
-    width: 54px;
-    height: 54px;
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    width: 58px;
+    height: 58px;
     color: var(--color-accent);
     stroke-width: 1.45;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .home-path__step p {
@@ -1290,6 +1296,8 @@
 
     .home-path__step i,
     .home-path__step svg {
+        top: 22px;
+        right: 22px;
         width: 46px;
         height: 46px;
     }
@@ -1381,5 +1389,109 @@
     .home-path__sticky {
         position: static !important;
         top: auto !important;
+    }
+}
+
+/* ================================
+   FINAL FIX — Home Path Step Layout
+   meta left top, icon right top, bigger content
+   ================================ */
+
+.home-path__step {
+    position: relative !important;
+    min-height: 270px !important;
+    display: grid !important;
+    align-content: center !important;
+    overflow: hidden !important;
+    padding: 104px 32px 34px !important;
+}
+
+.home-path__step>div {
+    display: grid !important;
+    gap: 14px !important;
+    max-width: 720px !important;
+    padding-top: 10px !important;
+}
+
+.home-path__meta {
+    position: absolute !important;
+    top: 28px !important;
+    left: 32px !important;
+    z-index: 3 !important;
+    display: inline-flex !important;
+    width: fit-content !important;
+    border-bottom: 2px solid currentColor !important;
+    color: var(--color-blue) !important;
+    font-family: var(--font-heading) !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.14em !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase !important;
+}
+
+.home-path__step h3 {
+    max-width: 680px !important;
+    font-size: clamp(27px, 2.8vw, 42px) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.055em !important;
+}
+
+.home-path__step p {
+    max-width: 700px !important;
+    color: rgba(5, 5, 5, 0.68) !important;
+    font-size: 16px !important;
+    line-height: 1.68 !important;
+}
+
+.home-path__step:nth-child(even) p {
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.home-path__step i,
+.home-path__step svg {
+    position: absolute !important;
+    top: 26px !important;
+    right: 28px !important;
+    z-index: 3 !important;
+    width: 58px !important;
+    height: 58px !important;
+    color: var(--color-accent) !important;
+    stroke-width: 1.45 !important;
+    pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+    .home-path__step {
+        min-height: 245px !important;
+        padding: 92px 24px 30px !important;
+    }
+
+    .home-path__step>div {
+        gap: 12px !important;
+        padding-top: 6px !important;
+    }
+
+    .home-path__meta {
+        top: 24px !important;
+        left: 24px !important;
+        font-size: 11px !important;
+    }
+
+    .home-path__step h3 {
+        font-size: clamp(24px, 7vw, 34px) !important;
+    }
+
+    .home-path__step p {
+        font-size: 15px !important;
+        line-height: 1.62 !important;
+    }
+
+    .home-path__step i,
+    .home-path__step svg {
+        top: 22px !important;
+        right: 22px !important;
+        width: 48px !important;
+        height: 48px !important;
     }
 }
