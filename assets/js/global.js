@@ -650,30 +650,39 @@
         const focusableSelector =
             'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+        const setMenuState = (isOpen) => {
+            menu.classList.toggle("is-open", isOpen);
+            menu.setAttribute("aria-hidden", isOpen ? "false" : "true");
+            openButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            openButton.setAttribute("aria-label", isOpen ? "Close mobile menu" : "Open mobile menu");
+            document.body.classList.toggle("menu-open", isOpen);
+        };
+
         const openMenu = () => {
             state.lastFocusedElement = document.activeElement;
 
-            menu.classList.add("is-open");
-            menu.setAttribute("aria-hidden", "false");
-            openButton.setAttribute("aria-expanded", "true");
-            document.body.classList.add("menu-open");
+            setMenuState(true);
 
             const firstFocusable = menu.querySelector(focusableSelector);
             if (firstFocusable) firstFocusable.focus();
         };
 
         const closeMenu = () => {
-            menu.classList.remove("is-open");
-            menu.setAttribute("aria-hidden", "true");
-            openButton.setAttribute("aria-expanded", "false");
-            document.body.classList.remove("menu-open");
+            setMenuState(false);
 
             if (state.lastFocusedElement && typeof state.lastFocusedElement.focus === "function") {
                 state.lastFocusedElement.focus();
             }
         };
 
-        openButton.addEventListener("click", openMenu);
+        openButton.addEventListener("click", () => {
+            if (menu.classList.contains("is-open")) {
+                closeMenu();
+                return;
+            }
+
+            openMenu();
+        });
         closeButton.addEventListener("click", closeMenu);
 
         menu.addEventListener("click", (event) => {
