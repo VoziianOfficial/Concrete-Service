@@ -356,6 +356,51 @@
         refreshIcons();
     }
 
+    (function () {
+        const counters = document.querySelectorAll("[data-count-to]");
+        if (!counters.length) return;
+
+        const animateCounter = (counter) => {
+            const target = Number(counter.dataset.countTo);
+            const duration = 1200;
+            const startTime = performance.now();
+
+            const update = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const value = Math.round(target * eased);
+
+                counter.textContent = String(value).padStart(2, "0");
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    counter.textContent = String(target).padStart(2, "0");
+                }
+            };
+
+            requestAnimationFrame(update);
+        };
+
+        const observer = new IntersectionObserver(
+            (entries, obs) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+
+                    const counter = entry.target;
+                    animateCounter(counter);
+                    obs.unobserve(counter);
+                });
+            },
+            {
+                threshold: 0.35
+            }
+        );
+
+        counters.forEach((counter) => observer.observe(counter));
+    })();
+
     /* ================================
        Photo Switch
        ================================ */

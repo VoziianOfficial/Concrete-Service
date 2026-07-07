@@ -870,3 +870,224 @@
         padding-right: 34px !important;
     }
 }
+
+/* ================================
+   Platform Insight Section
+   ================================ */
+
+.platform-insight {
+    background: var(--color-off-white);
+    color: var(--color-black);
+    overflow: hidden;
+}
+
+.platform-insight__grid {
+    display: grid;
+    grid-template-columns: 0.92fr 1.08fr;
+    gap: clamp(54px, 7vw, 96px);
+    align-items: start;
+}
+
+.platform-insight__left {
+    display: grid;
+    gap: 28px;
+}
+
+.platform-insight__photo {
+    position: relative;
+    overflow: hidden;
+    min-height: 460px;
+    margin: 0;
+    background: var(--color-concrete);
+    clip-path: polygon(0 0, 76% 0, 100% 26%, 100% 100%, 0 100%);
+}
+
+.platform-insight__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.01);
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.platform-insight__photo:hover img {
+    transform: scale(1.055);
+}
+
+.platform-insight__stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 34px;
+}
+
+.platform-insight__stat {
+    display: grid;
+    gap: 8px;
+}
+
+.platform-insight__stat strong {
+    color: var(--color-black);
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 5vw, 74px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.08em;
+}
+
+.platform-insight__stat span {
+    color: rgba(5, 5, 5, 0.62);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.platform-insight__right {
+    display: grid;
+    gap: 22px;
+}
+
+.platform-insight__right .section-kicker {
+    color: var(--color-accent);
+}
+
+.platform-insight__right .section-kicker::before {
+    background: var(--color-blue);
+}
+
+.platform-insight__right h2 {
+    max-width: 760px;
+    font-size: clamp(42px, 5vw, 74px);
+    line-height: 0.98;
+    letter-spacing: -0.07em;
+}
+
+.platform-insight__lead {
+    max-width: 720px;
+    color: rgba(5, 5, 5, 0.64);
+    font-size: 16px;
+    line-height: 1.72;
+}
+
+.platform-insight__reviews {
+    display: grid;
+    gap: 28px;
+    margin-top: 10px;
+}
+
+.platform-insight__review {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+    gap: 22px;
+    align-items: start;
+    padding-bottom: 22px;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.12);
+}
+
+.platform-insight__review:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.platform-insight__review-icon {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+    color: var(--color-accent);
+}
+
+.platform-insight__review-icon i,
+.platform-insight__review-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke-width: 1.85;
+}
+
+.platform-insight__review-body {
+    display: grid;
+    gap: 6px;
+}
+
+.platform-insight__review-body h3 {
+    color: var(--color-black);
+    font-size: clamp(24px, 2vw, 34px);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+}
+
+.platform-insight__review-body span {
+    color: rgba(5, 5, 5, 0.48);
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.platform-insight__review-body p {
+    margin-top: 8px;
+    color: rgba(5, 5, 5, 0.64);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 620px;
+}
+
+.platform-insight__right .btn {
+    margin-top: 12px;
+    width: fit-content;
+}
+
+@media (max-width: 1180px) {
+    .platform-insight__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-insight__photo {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 768px) {
+    .platform-insight__photo {
+        min-height: 340px;
+        clip-path: polygon(0 0, 84% 0, 100% 18%, 100% 100%, 0 100%);
+    }
+
+    .platform-insight__stats {
+        gap: 20px 22px;
+    }
+
+    .platform-insight__review {
+        grid-template-columns: 68px 1fr;
+        gap: 18px;
+    }
+
+    .platform-insight__review-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+    }
+
+    .platform-insight__review-icon i,
+    .platform-insight__review-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .platform-insight__stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .platform-insight__photo {
+        min-height: 300px;
+        clip-path: none;
+    }
+
+    .platform-insight__right h2 {
+        font-size: clamp(34px, 10vw, 48px);
+    }
+}
