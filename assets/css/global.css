@@ -2066,3 +2066,34 @@ body {
         padding-top: 74px !important;
     }
 }
+
+[data-aos] {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+[data-aos^="fade"] {
+    transform-style: preserve-3d;
+}
+
+[data-aos]:not(.aos-animate) {
+    will-change: transform, opacity;
+}
+
+[data-aos].aos-animate {
+    will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    [data-aos],
+    [data-aos].aos-animate {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}

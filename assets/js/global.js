@@ -7,7 +7,9 @@
 
     const state = {
         dropdownTimer: null,
-        lastFocusedElement: null
+        lastFocusedElement: null,
+        aosInitialized: false,
+        aosRefreshTimer: null
     };
 
     const selectors = {
@@ -46,8 +48,15 @@
         initParallaxSections();
         initAOS();
         initLucideIcons();
+        safeRefreshAOS();
 
-        window.addEventListener("resize", debounce(handleResize, 160));
+        window.addEventListener(
+            "resize",
+            debounce(() => {
+                handleResize();
+                safeRefreshAOS();
+            }, 160)
+        );
     }
 
     
@@ -1082,28 +1091,307 @@
 
     
 
-    function initAOS() {
-        if (!window.AOS) return;
+    function initSmoothAOS() {
+        const managedAttributes = [
+            "data-aos",
+            "data-aos-delay",
+            "data-aos-duration",
+            "data-aos-offset",
+            "data-aos-easing",
+            "data-aos-anchor-placement",
+            "data-aos-once"
+        ];
 
-        window.AOS.init({
-            duration: 820,
-            easing: "ease-out-cubic",
-            once: true,
-            offset: 90,
-            disable: function () {
-                return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const isMobileViewport = window.innerWidth <= 768;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        const clearManagedAOS = () => {
+            document
+                .querySelectorAll("[data-aos], [data-aos-managed], .aos-init, .aos-animate")
+                .forEach((element) => {
+                    if (!(element instanceof Element)) return;
+
+                    managedAttributes.forEach((attribute) => element.removeAttribute(attribute));
+                    element.removeAttribute("data-aos-managed");
+                    element.classList.remove("aos-init", "aos-animate");
+                });
+        };
+
+        const isUnsafeTarget = (element) => {
+            if (!(element instanceof Element)) return true;
+
+            if (
+                element.matches(
+                    [
+                        "body",
+                        "img",
+                        ".page-shell",
+                        ".site-header",
+                        ".site-footer",
+                        ".mobile-menu",
+                        ".services-dropdown",
+                        ".swiper",
+                        ".swiper-wrapper",
+                        ".swiper-slide",
+                        ".sticky-col",
+                        ".home-path__sticky",
+                        ".about-values__sticky",
+                        ".catalog-checklist__sticky",
+                        "[data-parallax-layer]",
+                        ".home-depth__bg",
+                        ".home-depth__overlay",
+                        ".catalog-red-parallax__bg",
+                        ".catalog-red-parallax__overlay",
+                        ".about-parallax__bg",
+                        ".about-parallax__overlay",
+                        ".service-detail-parallax__bg"
+                    ].join(", ")
+                )
+            ) {
+                return true;
             }
+
+            if (element.closest(".swiper-wrapper, .swiper-slide")) {
+                return true;
+            }
+
+            if (element.matches("input, textarea, select, button") && element.closest("form")) {
+                return true;
+            }
+
+            return false;
+        };
+
+        const queryUnique = (selectors) => {
+            const seen = new Set();
+            const list = Array.isArray(selectors) ? selectors : [selectors];
+
+            list.forEach((selector) => {
+                document.querySelectorAll(selector).forEach((element) => {
+                    if (!seen.has(element)) {
+                        seen.add(element);
+                    }
+                });
+            });
+
+            return Array.from(seen).filter((element) => !isUnsafeTarget(element));
+        };
+
+        const applyAOS = (element, options = {}) => {
+            if (!element || isUnsafeTarget(element)) return;
+
+            const animation = options.animation || "fade-up";
+            const duration = options.duration ?? (isMobileViewport ? 700 : 850);
+            const offset = options.offset ?? (isMobileViewport ? 40 : 70);
+            const delay = isMobileViewport ? 0 : Math.min(options.delay ?? 0, 180);
+
+            element.setAttribute("data-aos", animation);
+            element.setAttribute("data-aos-duration", String(duration));
+            element.setAttribute("data-aos-offset", String(offset));
+            element.setAttribute("data-aos-easing", "ease-out-cubic");
+            element.setAttribute("data-aos-anchor-placement", "top-bottom");
+            element.setAttribute("data-aos-once", "true");
+            element.setAttribute("data-aos-managed", "true");
+
+            if (delay > 0) {
+                element.setAttribute("data-aos-delay", String(delay));
+            } else {
+                element.removeAttribute("data-aos-delay");
+            }
+        };
+
+        const applyBatch = (selectors, options = {}) => {
+            queryUnique(selectors).forEach((element) => applyAOS(element, options));
+        };
+
+        const applyStagger = (selectors, options = {}) => {
+            queryUnique(selectors).forEach((element, index) => {
+                const delay = isMobileViewport ? 0 : Math.min((index % 3) * 70, 180);
+                applyAOS(element, {
+                    ...options,
+                    delay
+                });
+            });
+        };
+
+        const applySplitPair = (leftSelector, rightSelector) => {
+            applyBatch(leftSelector, {
+                animation: isMobileViewport ? "fade-up" : "fade-right",
+                duration: isMobileViewport ? 720 : 850,
+                offset: isMobileViewport ? 40 : 70
+            });
+
+            applyBatch(rightSelector, {
+                animation: isMobileViewport ? "fade-up" : "fade-left",
+                duration: isMobileViewport ? 720 : 850,
+                offset: isMobileViewport ? 40 : 70
+            });
+        };
+
+        clearManagedAOS();
+
+        if (prefersReducedMotion) {
+            return;
+        }
+
+        applyBatch([".page-hero__content"], {
+            animation: "fade-up",
+            duration: 850,
+            offset: 40
         });
 
-        window.addEventListener(
-            "load",
-            () => {
-                if (window.AOS && typeof window.AOS.refreshHard === "function") {
-                    window.AOS.refreshHard();
-                }
-            },
-            { once: true }
+        applyBatch(
+            [
+                ".home-hero__mini-nav",
+                ".section-heading",
+                ".platform-standards__heading",
+                ".home-popular-dark__top",
+                ".home-service-mosaic__top",
+                ".home-flip__heading",
+                ".home-value__heading",
+                ".service-detail-related__top",
+                ".slider-controls",
+                ".catalog-red-parallax__content",
+                ".about-parallax__content",
+                ".home-depth__content",
+                ".legal-document__intro",
+                ".contact-disclaimer__panel"
+            ],
+            {
+                animation: "fade-up",
+                duration: 850,
+                offset: 70
+            }
         );
+
+        [
+            [".home-platform__content", ".home-platform__photos"],
+            [".service-detail-overview__content", ".service-detail-overview__visual"],
+            [".service-match-overview__content", ".service-match-overview__photo"],
+            [".service-snapshot__content", ".service-snapshot__main-photo"],
+            [".service-snapshot__side-photo", ".service-snapshot__text"],
+            [".contact-form__info", ".contact-form__panel"],
+            [".platform-insight__left", ".platform-insight__right"],
+            [".about-statement__copy", ".about-statement__panel"],
+            [".about-story__photos", ".about-story__content"],
+            [".about-provider-compare__grid > div:first-child", ".about-provider-compare__visual"],
+            [".home-precision__visual", ".home-precision__content"],
+            [".home-compare__aside", ".home-compare__grid > .accordion"],
+            [".contact-faq__intro", ".contact-faq .accordion"],
+            [".about-faq__intro", ".about-faq .accordion"],
+            [".catalog-faq__intro", ".catalog-faq .accordion"],
+            [".service-detail-faq__intro", ".service-detail-faq .accordion"],
+            [".legal-sidebar", ".legal-content"],
+            [".catalog-finish__photos", ".catalog-finish__content"],
+            [".home-value__list", ".home-value__photos"]
+        ].forEach(([leftSelector, rightSelector]) => applySplitPair(leftSelector, rightSelector));
+
+        applyBatch(
+            [
+                ".home-path__sticky-inner",
+                ".about-values__sticky .section-kicker",
+                ".about-values__sticky h2",
+                ".about-values__sticky .lead",
+                ".catalog-checklist__sticky .section-kicker",
+                ".catalog-checklist__sticky h2",
+                ".catalog-checklist__sticky .lead"
+            ],
+            {
+                animation: "fade-up",
+                duration: isMobileViewport ? 700 : 850,
+                offset: isMobileViewport ? 40 : 70
+            }
+        );
+
+        applyStagger(
+            [
+                ".home-category__card",
+                ".home-flip__card",
+                ".home-service-mosaic__card",
+                ".home-popular-dark__card",
+                ".catalog-overview__card",
+                ".contact-intro__card",
+                ".about-editorial__card",
+                ".platform-insight__review",
+                ".platform-insight__stat",
+                ".home-depth__card"
+            ],
+            {
+                animation: "fade",
+                duration: 750,
+                offset: 70
+            }
+        );
+
+        applyStagger(
+            [
+                ".home-path__step",
+                ".about-values__card",
+                ".catalog-checklist__card",
+                ".platform-standards__item",
+                ".service-snapshot__meta-item",
+                ".home-proof-strip__item",
+                ".about-provider-compare__item",
+                ".catalog-proof-strip__item"
+            ],
+            {
+                animation: "fade",
+                duration: 750,
+                offset: 60
+            }
+        );
+    }
+
+    function safeRefreshAOS() {
+        clearTimeout(state.aosRefreshTimer);
+
+        state.aosRefreshTimer = window.setTimeout(() => {
+            initSmoothAOS();
+
+            if (
+                window.AOS &&
+                state.aosInitialized &&
+                typeof window.AOS.refreshHard === "function" &&
+                !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ) {
+                window.AOS.refreshHard();
+            }
+        }, 160);
+    }
+
+    function initAOS() {
+        initSmoothAOS();
+
+        if (!window.AOS) return;
+
+        if (!state.aosInitialized) {
+            window.AOS.init({
+                once: true,
+                mirror: false,
+                duration: 850,
+                easing: "ease-out-cubic",
+                offset: 70,
+                delay: 0,
+                anchorPlacement: "top-bottom",
+                disable: function () {
+                    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                }
+            });
+
+            state.aosInitialized = true;
+
+            window.addEventListener("load", safeRefreshAOS, { once: true });
+        }
+
+        document.querySelectorAll("img").forEach((image) => {
+            if (image.complete || image.dataset.aosRefreshBound === "true") return;
+
+            image.dataset.aosRefreshBound = "true";
+            image.addEventListener("load", safeRefreshAOS, { once: true });
+            image.addEventListener("error", safeRefreshAOS, { once: true });
+        });
+
+        safeRefreshAOS();
     }
 
     function initLucideIcons() {
@@ -1114,6 +1402,11 @@
 
     window.SlabWayIcons = {
         refresh: initLucideIcons
+    };
+
+    window.SlabWayAOS = {
+        init: initSmoothAOS,
+        refresh: safeRefreshAOS
     };
 
     
@@ -1138,10 +1431,13 @@
             }
         };
 
-        return new window.Swiper(element, {
+        const swiper = new window.Swiper(element, {
             ...defaultOptions,
             ...options
         });
+
+        safeRefreshAOS();
+        return swiper;
     }
 
     window.SlabWaySwiper = {

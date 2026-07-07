@@ -837,6 +837,7 @@
         initRelatedServices(service);
         injectFaqSchema(service);
         refreshIcons();
+        refreshAOS();
 
         if (window.SlabWayAccordion && typeof window.SlabWayAccordion.init === "function") {
             window.SlabWayAccordion.init(document);
@@ -866,6 +867,12 @@
 
         if (window.lucide && typeof window.lucide.createIcons === "function") {
             window.lucide.createIcons();
+        }
+    }
+
+    function refreshAOS() {
+        if (window.SlabWayAOS && typeof window.SlabWayAOS.refresh === "function") {
+            window.SlabWayAOS.refresh();
         }
     }
 

@@ -14,6 +14,7 @@
         initHomeNavigator();
         initHomeHoverPanels();
         refreshIcons();
+        refreshAOS();
     }
 
     function refreshIcons() {
@@ -24,6 +25,12 @@
 
         if (window.lucide && typeof window.lucide.createIcons === "function") {
             window.lucide.createIcons();
+        }
+    }
+
+    function refreshAOS() {
+        if (window.SlabWayAOS && typeof window.SlabWayAOS.refresh === "function") {
+            window.SlabWayAOS.refresh();
         }
     }
 

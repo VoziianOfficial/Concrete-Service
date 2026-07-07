@@ -16,6 +16,7 @@
         initCatalogRevealAccessibility();
         initCatalogNavigator();
         refreshIcons();
+        refreshAOS();
     }
 
     function refreshIcons() {
@@ -26,6 +27,12 @@
 
         if (window.lucide && typeof window.lucide.createIcons === "function") {
             window.lucide.createIcons();
+        }
+    }
+
+    function refreshAOS() {
+        if (window.SlabWayAOS && typeof window.SlabWayAOS.refresh === "function") {
+            window.SlabWayAOS.refresh();
         }
     }
 
@@ -54,13 +61,11 @@
 
         container.innerHTML = services
             .map(
-                (service, index) => `
+                (service) => `
           <a
             class="catalog-overview__card card-shine"
             href="${escapeHtml(service.url)}"
             style="--catalog-image: url('${escapeHtml(resolveAssetUrl(service.image))}')"
-            data-aos="fade-up"
-            data-aos-delay="${(index % 3) * 70}"
           >
             <span class="catalog-overview__icon">
               ${icon(service.icon || "square-stack")}
