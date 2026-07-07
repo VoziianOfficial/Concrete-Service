@@ -285,6 +285,8 @@
             }
         };
 
+
+
         const activate = (key) => {
             const entry = content[key] || content.smooth;
 
@@ -361,6 +363,31 @@
             });
         });
     }
+
+    (function () {
+        const section = document.querySelector("[data-red-parallax]");
+        if (!section) return;
+
+        const bg = section.querySelector(".catalog-red-parallax__bg");
+        if (!bg) return;
+
+        const updateParallax = () => {
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (rect.bottom < 0 || rect.top > windowHeight) return;
+
+            const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+            const move = (progress - 0.5) * 70;
+
+            bg.style.transform = `translateY(${move}px)`;
+        };
+
+        updateParallax();
+
+        window.addEventListener("scroll", updateParallax, { passive: true });
+        window.addEventListener("resize", updateParallax);
+    })();
 
     /* ================================
        Section 10 — Final Navigator
