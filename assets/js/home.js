@@ -392,6 +392,32 @@
         refreshIcons();
     }
 
+    (function () {
+        const parallaxBg = document.querySelector(".home-depth__bg");
+
+        if (!parallaxBg) return;
+
+        const updateParallax = () => {
+            const section = parallaxBg.closest(".home-depth");
+            if (!section) return;
+
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (rect.bottom < 0 || rect.top > windowHeight) return;
+
+            const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+            const move = (progress - 0.5) * 90;
+
+            parallaxBg.style.transform = `translateY(${move}px)`;
+        };
+
+        updateParallax();
+
+        window.addEventListener("scroll", updateParallax, { passive: true });
+        window.addEventListener("resize", updateParallax);
+    })();
+
     /* ================================
        Icon Reveal / Hover Accessibility
        ================================ */

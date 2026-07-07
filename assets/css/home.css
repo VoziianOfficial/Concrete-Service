@@ -680,56 +680,6 @@
     stroke-width: 1.45;
 }
 
-/* ================================
-   Section 7 — Parallax Clarity
-   ================================ */
-
-.home-parallax {
-    position: relative;
-    overflow: hidden;
-    min-height: 520px;
-    display: grid;
-    align-items: center;
-    background: var(--color-black);
-    color: var(--color-white);
-}
-
-.home-parallax__bg {
-    position: absolute;
-    inset: -12% 0;
-    z-index: 0;
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
-        url("../images/concrete-parallax.jpg") center / cover no-repeat;
-    will-change: transform;
-}
-
-.home-parallax__inner {
-    position: relative;
-    z-index: 1;
-}
-
-.home-parallax__card {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 34px;
-    align-items: center;
-    border: 1px solid var(--color-border-dark);
-    border-radius: var(--radius-lg);
-    background: rgba(5, 5, 5, 0.58);
-    padding: clamp(28px, 5vw, 54px);
-    backdrop-filter: blur(10px);
-}
-
-.home-parallax__card h2 {
-    max-width: 860px;
-}
-
-.home-parallax__card p {
-    max-width: 760px;
-    margin-top: 16px;
-    color: rgba(255, 255, 255, 0.74);
-}
 
 /* ================================
    Section 8 — Compare Accordion
@@ -769,160 +719,6 @@
 .home-compare__aside-card p {
     color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
-}
-
-/* ================================
-   Section 9 — Scenario Slider
-   ================================ */
-
-.home-scenario {
-    background: var(--color-graphite);
-    color: var(--color-white);
-}
-
-.home-scenario__top {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 28px;
-    margin-bottom: 36px;
-}
-
-.home-scenario-card {
-    min-height: 390px;
-    display: grid;
-    align-content: space-between;
-    border: 1px solid var(--color-border-dark);
-    border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.055);
-    padding: 28px;
-    color: var(--color-white);
-    transition:
-        transform var(--transition-base),
-        border-color var(--transition-base),
-        background var(--transition-base);
-}
-
-.home-scenario-card:hover {
-    transform: translateY(-6px);
-    border-color: var(--color-accent);
-    background: rgba(215, 25, 79, 0.1);
-}
-
-.home-scenario-card__visual {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.home-scenario-card__visual i,
-.home-scenario-card__visual svg {
-    width: 72px;
-    height: 72px;
-    color: var(--color-accent);
-    stroke-width: 1.25;
-}
-
-.home-scenario-card__tag {
-    display: inline-flex;
-    border: 1px solid var(--color-border-dark);
-    border-radius: 999px;
-    padding: 8px 11px;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 12px;
-    font-weight: 900;
-}
-
-.home-scenario-card h3 {
-    margin-top: 38px;
-}
-
-.home-scenario-card p {
-    margin-top: 14px;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 14px;
-    line-height: 1.65;
-}
-
-.home-scenario-card__bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    align-items: center;
-    margin-top: 28px;
-}
-
-/* ================================
-   Section 10 — Trust / Clarity Strip
-   ================================ */
-
-.home-clarity {
-    background: var(--color-off-white);
-}
-
-.home-clarity__panel {
-    border-radius: var(--radius-lg);
-    background: var(--color-black);
-    color: var(--color-white);
-    padding: clamp(28px, 5vw, 54px);
-}
-
-.home-clarity__grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 34px;
-}
-
-.home-clarity__item {
-    min-height: 190px;
-    border: 1px solid var(--color-border-dark);
-    border-radius: var(--radius-md);
-    padding: 22px;
-    transition:
-        transform var(--transition-base),
-        border-color var(--transition-base),
-        background var(--transition-base);
-}
-
-.home-clarity__item:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-blue);
-    background: rgba(53, 168, 255, 0.08);
-}
-
-.home-clarity__item i,
-.home-clarity__item svg {
-    width: 38px;
-    height: 38px;
-    color: var(--color-accent);
-    margin-bottom: 18px;
-}
-
-.home-clarity__item strong {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 1.12;
-}
-
-.home-clarity__item span {
-    display: block;
-    margin-top: 10px;
-    color: rgba(255, 255, 255, 0.68);
-    font-size: 13px;
-    line-height: 1.55;
-}
-
-.home-clarity__disclaimer {
-    margin-top: 26px;
-    border-top: 1px solid var(--color-border-dark);
-    padding-top: 22px;
-    color: rgba(255, 255, 255, 0.68);
-    font-size: 13px;
-    line-height: 1.7;
 }
 
 /* ================================
@@ -1493,5 +1289,205 @@
         right: 22px !important;
         width: 48px !important;
         height: 48px !important;
+    }
+}
+
+/* ================================
+   Home Depth — Parallax Photo Cards
+   ================================ */
+
+.home-depth {
+    position: relative;
+    isolation: isolate;
+    min-height: 720px;
+    display: grid;
+    align-items: end;
+    overflow: hidden;
+    background: var(--color-black);
+    color: var(--color-white);
+    padding: 124px 0 34px;
+}
+
+.home-depth__bg {
+    position: absolute;
+    inset: -14% 0;
+    z-index: -3;
+    background:
+        url("../images/concrete-parallax.jpg") center / cover no-repeat;
+    will-change: transform;
+    transform: translateY(0);
+}
+
+.home-depth__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.48) 0%,
+            rgba(0, 0, 0, 0.58) 42%,
+            rgba(0, 0, 0, 0.86) 100%);
+}
+
+.home-depth__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: clamp(76px, 10vw, 150px);
+}
+
+.home-depth__content {
+    width: min(100%, 780px);
+    margin-inline: auto;
+    display: grid;
+    justify-items: center;
+    gap: 18px;
+    text-align: center;
+}
+
+.home-depth__content .section-kicker {
+    color: var(--color-white);
+}
+
+.home-depth__content .section-kicker::before {
+    background: var(--color-accent);
+}
+
+.home-depth__content h2 {
+    max-width: 760px;
+    font-size: clamp(34px, 4.4vw, 64px);
+}
+
+.home-depth__content p {
+    max-width: 620px;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 16px;
+    line-height: 1.72;
+}
+
+.home-depth__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.home-depth__card {
+    position: relative;
+    display: grid;
+    align-content: end;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.105);
+    padding: 24px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
+    transition:
+        transform var(--transition-base),
+        border-color var(--transition-base),
+        background var(--transition-base);
+}
+
+.home-depth__card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(115deg,
+            transparent 0%,
+            transparent 38%,
+            rgba(255, 255, 255, 0.16) 48%,
+            transparent 58%,
+            transparent 100%);
+    transform: translateX(-120%);
+    transition: transform 780ms ease;
+}
+
+.home-depth__card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.34);
+    background: rgba(122, 30, 45, 0.28);
+}
+
+.home-depth__card:hover::before {
+    transform: translateX(120%);
+}
+
+.home-depth__card i,
+.home-depth__card svg {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 46px;
+    height: 46px;
+    color: var(--color-accent);
+    stroke-width: 1.45;
+}
+
+.home-depth__card span {
+    display: block;
+    max-width: 240px;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+}
+
+.home-depth__card p {
+    max-width: 330px;
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 13px;
+    line-height: 1.62;
+}
+
+@media (max-width: 1024px) {
+    .home-depth {
+        min-height: 680px;
+        padding: 104px 0 30px;
+    }
+
+    .home-depth__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .home-depth__card {
+        min-height: 160px;
+    }
+}
+
+@media (max-width: 640px) {
+    .home-depth {
+        min-height: auto;
+        padding: 78px 0 24px;
+    }
+
+    .home-depth__inner {
+        gap: 58px;
+    }
+
+    .home-depth__content {
+        justify-items: start;
+        text-align: left;
+    }
+
+    .home-depth__content h2 {
+        font-size: clamp(30px, 9vw, 44px);
+    }
+
+    .home-depth__card {
+        padding: 22px;
+        padding-top: 82px;
+    }
+
+    .home-depth__card i,
+    .home-depth__card svg {
+        top: 22px;
+        right: 22px;
+        width: 42px;
+        height: 42px;
     }
 }
