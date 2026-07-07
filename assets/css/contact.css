@@ -1091,3 +1091,149 @@
         font-size: clamp(34px, 10vw, 48px);
     }
 }
+
+/* ================================
+   FIX — Contact Disclaimer full-width content + photo background
+   ================================ */
+
+.contact-disclaimer__panel {
+    position: relative !important;
+    isolation: isolate !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    align-items: start !important;
+    overflow: hidden !important;
+    min-height: auto !important;
+    border-radius: var(--radius-lg) !important;
+    background: var(--color-black) !important;
+    color: var(--color-white) !important;
+    padding: clamp(30px, 4vw, 48px) !important;
+}
+
+.contact-disclaimer__panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+        url("../images/concrete-parallax.jpg") center / cover no-repeat;
+    transform: scale(1.02);
+}
+
+.contact-disclaimer__panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(rgba(5, 5, 5, 0.76),
+            rgba(5, 5, 5, 0.86));
+}
+
+.contact-disclaimer__icon {
+    position: relative !important;
+    z-index: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+.contact-disclaimer__icon i,
+.contact-disclaimer__icon svg {
+    width: 52px !important;
+    height: 52px !important;
+    color: var(--color-blue) !important;
+    stroke-width: 1.25 !important;
+}
+
+.contact-disclaimer__icon .section-kicker {
+    color: var(--color-white) !important;
+}
+
+.contact-disclaimer__icon .section-kicker::before {
+    background: var(--color-accent) !important;
+}
+
+.contact-disclaimer__content {
+    position: relative !important;
+    z-index: 1 !important;
+    display: grid !important;
+    gap: 18px !important;
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.contact-disclaimer__content h2 {
+    max-width: 980px !important;
+    color: var(--color-white) !important;
+    font-size: clamp(34px, 4.2vw, 62px) !important;
+    line-height: 0.98 !important;
+    letter-spacing: -0.065em !important;
+}
+
+.contact-disclaimer__content p {
+    max-width: 1120px !important;
+    color: rgba(255, 255, 255, 0.76) !important;
+    font-size: 15px !important;
+    line-height: 1.72 !important;
+}
+
+.contact-disclaimer__list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px 22px !important;
+    margin-top: 8px !important;
+    width: 100% !important;
+}
+
+.contact-disclaimer__list li {
+    display: grid !important;
+    grid-template-columns: 24px 1fr !important;
+    gap: 10px !important;
+    align-items: start !important;
+    color: rgba(255, 255, 255, 0.78) !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+}
+
+.contact-disclaimer__list i,
+.contact-disclaimer__list svg {
+    width: 18px !important;
+    height: 18px !important;
+    color: var(--color-blue) !important;
+    margin-top: 3px !important;
+}
+
+@media (max-width: 760px) {
+    .contact-disclaimer__panel {
+        padding: 30px !important;
+    }
+
+    .contact-disclaimer__icon {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+    }
+
+    .contact-disclaimer__content h2 {
+        font-size: clamp(30px, 9vw, 44px) !important;
+    }
+
+    .contact-disclaimer__list {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-disclaimer__panel {
+        padding: 26px !important;
+        border-radius: var(--radius-md) !important;
+    }
+
+    .contact-disclaimer__icon i,
+    .contact-disclaimer__icon svg {
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
