@@ -41,6 +41,10 @@
             .replaceAll("'", "&#039;");
     }
 
+    function resolveAssetUrl(path) {
+        return new URL(String(path ?? ""), window.location.href).href;
+    }
+
     function icon(name) {
         return `<i data-lucide="${escapeHtml(name)}" aria-hidden="true"></i>`;
     }
@@ -246,24 +250,44 @@
         const section = document.querySelector("[data-catalog-finish]");
         if (!section) return;
 
+        const mainPhoto = section.querySelector("[data-catalog-finish-main]");
         const photos = Array.from(section.querySelectorAll("[data-catalog-finish-photo]"));
         const chips = Array.from(section.querySelectorAll("[data-catalog-finish-chip]"));
+        const label = section.querySelector("[data-catalog-finish-label]");
         const text = section.querySelector("[data-catalog-finish-text]");
 
-        if (!photos.length || !chips.length) return;
+        if (!mainPhoto || !chips.length) return;
 
         const content = {
-            smooth:
-                "Smooth finish requests are easier to compare when homeowners prepare notes about surface use, size, access, preparation, and provider-supplied maintenance terms.",
-            brushed:
-                "Brushed finish requests may involve traction expectations, outdoor use, drainage, connection points, and provider-specific finishing details.",
-            stamped:
-                "Stamped concrete comparison can include pattern preference, color direction, sealant terms, maintenance notes, and whether the surface is for a patio, walkway, or driveway.",
-            repair:
-                "Repair-focused requests may require provider assessment. Useful notes include cracks, uneven areas, surface wear, drainage issues, and photos when available."
+            smooth: {
+                image: "assets/images/service-slabs.jpg",
+                label: "Smooth finish request notes",
+                text:
+                    "Smooth finish requests are easier to compare when homeowners prepare notes about surface use, size, access, preparation, and provider-supplied maintenance terms."
+            },
+            brushed: {
+                image: "assets/images/service-driveways.jpg",
+                label: "Brushed finish surface",
+                text:
+                    "Brushed finish requests may involve traction expectations, outdoor use, drainage, connection points, and provider-specific finishing details."
+            },
+            stamped: {
+                image: "assets/images/service-stamped-card.jpg",
+                label: "Stamped concrete pattern",
+                text:
+                    "Stamped concrete comparison can include pattern preference, color direction, sealant terms, maintenance notes, and whether the surface is for a patio, walkway, or driveway."
+            },
+            repair: {
+                image: "assets/images/service-repair.jpg",
+                label: "Repair-focused surface",
+                text:
+                    "Repair-focused requests may require provider assessment. Useful notes include cracks, uneven areas, surface wear, drainage issues, and photos when available."
+            }
         };
 
         const activate = (key) => {
+            const entry = content[key] || content.smooth;
+
             chips.forEach((chip) => {
                 chip.classList.toggle(
                     "is-active",
@@ -271,15 +295,24 @@
                 );
             });
 
-            photos.forEach((photo) => {
-                photo.classList.toggle(
-                    "is-active",
-                    photo.getAttribute("data-catalog-finish-photo") === key
-                );
-            });
+            mainPhoto.classList.add("is-active");
+            mainPhoto.style.setProperty("--finish-image", `url('${resolveAssetUrl(entry.image)}')`);
 
-            if (text && content[key]) {
-                text.textContent = content[key];
+            if (label && entry.label) {
+                label.textContent = entry.label;
+            }
+
+            if (photos.length) {
+                photos.forEach((photo) => {
+                    photo.classList.toggle(
+                        "is-active",
+                        photo.getAttribute("data-catalog-finish-photo") === key
+                    );
+                });
+            }
+
+            if (text && entry.text) {
+                text.textContent = entry.text;
             }
         };
 
@@ -291,12 +324,14 @@
             chip.addEventListener("click", () => activate(key));
         });
 
-        photos.forEach((photo) => {
-            const key = photo.getAttribute("data-catalog-finish-photo");
+        if (photos.length) {
+            photos.forEach((photo) => {
+                const key = photo.getAttribute("data-catalog-finish-photo");
 
-            photo.addEventListener("mouseenter", () => activate(key));
-            photo.addEventListener("focusin", () => activate(key));
-        });
+                photo.addEventListener("mouseenter", () => activate(key));
+                photo.addEventListener("focusin", () => activate(key));
+            });
+        }
 
         activate(chips[0].getAttribute("data-catalog-finish-chip"));
     }
