@@ -12,7 +12,6 @@
     document.addEventListener("DOMContentLoaded", initHomePage);
 
     function initHomePage() {
-        initHomeServiceSwiper();
         initHomeScenarioSwiper();
         initHomeDualPhotoSwitch();
         initHomeNavigator();
@@ -42,89 +41,6 @@
 
     function icon(name) {
         return `<i data-lucide="${escapeHtml(name)}" aria-hidden="true"></i>`;
-    }
-
-    /* ================================
-       Home Service Swiper
-       ================================ */
-
-    function initHomeServiceSwiper() {
-        const swiperElement = document.querySelector("[data-home-service-swiper]");
-        const wrapper = document.querySelector("[data-home-service-swiper-wrapper]");
-
-        if (!swiperElement || !wrapper || !services.length) return;
-
-        wrapper.innerHTML = services
-            .map(
-                (service) => `
-          <div class="swiper-slide">
-            <a class="home-service-card card-shine" href="${escapeHtml(service.url)}" style="--service-image: url('${escapeHtml(service.image)}')">
-              <span class="home-service-card__icon">
-                ${icon(service.icon || "square-stack")}
-              </span>
-
-              <span class="home-service-card__content">
-                <h3>${escapeHtml(service.name)}</h3>
-                <p>${escapeHtml(service.summary)}</p>
-                <span class="icon-link">
-                  View Details
-                  ${icon("arrow-right")}
-                </span>
-              </span>
-            </a>
-          </div>
-        `
-            )
-            .join("");
-
-        const pagination = swiperElement
-            .closest(".home-service-swiper")
-            ?.querySelector("[data-home-service-pagination]");
-
-        const nextButton = swiperElement
-            .closest(".home-service-swiper")
-            ?.querySelector("[data-home-service-next]");
-
-        const prevButton = swiperElement
-            .closest(".home-service-swiper")
-            ?.querySelector("[data-home-service-prev]");
-
-        if (window.SlabWaySwiper) {
-            window.SlabWaySwiper.create(swiperElement, {
-                loop: true,
-                spaceBetween: 18,
-                slidesPerView: 1,
-                pagination: pagination
-                    ? {
-                        el: pagination,
-                        type: "fraction"
-                    }
-                    : undefined,
-                navigation:
-                    nextButton && prevButton
-                        ? {
-                            nextEl: nextButton,
-                            prevEl: prevButton
-                        }
-                        : undefined,
-                breakpoints: {
-                    640: {
-                        slidesPerView: 1.15,
-                        spaceBetween: 18
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 22
-                    }
-                }
-            });
-        }
-
-        refreshIcons();
     }
 
     /* ================================

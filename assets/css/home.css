@@ -607,81 +607,6 @@
 }
 
 /* ================================
-   Section 6 — Services Swiper
-   ================================ */
-
-.home-service-swiper {
-    background: var(--color-off-white);
-}
-
-.home-service-swiper__top {
-    display: flex;
-    justify-content: space-between;
-    gap: 28px;
-    align-items: end;
-    margin-bottom: 36px;
-}
-
-.home-service-swiper__top .section-heading {
-    max-width: 760px;
-}
-
-.home-service-card {
-    position: relative;
-    min-height: 440px;
-    display: grid;
-    align-content: end;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    background: var(--color-black);
-    color: var(--color-white);
-}
-
-.home-service-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.82)),
-        var(--service-image) center / cover no-repeat;
-    transition: transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.home-service-card:hover::before {
-    transform: scale(1.07);
-}
-
-.home-service-card__content {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    gap: 14px;
-    padding: 30px;
-}
-
-.home-service-card__content p {
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 14px;
-    line-height: 1.62;
-}
-
-.home-service-card__icon {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    z-index: 2;
-    color: var(--color-white);
-}
-
-.home-service-card__icon svg,
-.home-service-card__icon i {
-    width: 46px;
-    height: 46px;
-    stroke-width: 1.45;
-}
-
-
-/* ================================
    Section 8 — Compare Accordion
    ================================ */
 
@@ -892,7 +817,6 @@
         min-height: 540px;
     }
 
-    .home-service-swiper__top,
     .home-scenario__top {
         align-items: flex-start;
         flex-direction: column;
@@ -986,10 +910,6 @@
         transform: none;
     }
 
-    .home-service-card {
-        min-height: 400px;
-    }
-
     .home-parallax__card {
         padding: 28px;
     }
@@ -1056,7 +976,6 @@
         min-height: 300px;
     }
 
-    .home-service-swiper__top,
     .home-scenario__top {
         gap: 20px;
     }
@@ -1104,14 +1023,6 @@
         height: 72px;
     }
 
-    .home-service-card {
-        min-height: 370px;
-    }
-
-    .home-service-card__content {
-        padding: 24px;
-    }
-
     .home-scenario-card {
         min-height: 330px;
         padding: 24px;
@@ -1131,8 +1042,7 @@
 
 @media (max-width: 360px) {
 
-    .home-category__card,
-    .home-service-card {
+    .home-category__card {
         min-height: 340px;
     }
 
@@ -1988,4 +1898,3 @@
         margin-left: 0 !important;
     }
 }
-
