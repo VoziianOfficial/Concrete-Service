@@ -1,12 +1,6 @@
-/* ================================
-   SlabWay Contact Page Styles
-   File: assets/css/contact.css
-   Prefix: .contact-*
-   ================================ */
 
-/* ================================
-   Contact Hero
-   ================================ */
+
+
 
 .contact-hero {
     --hero-image: url("../images/hero-contact.jpg");
@@ -16,9 +10,7 @@
     max-width: 900px;
 }
 
-/* ================================
-   Section 1 — Intro Clarity Strip
-   ================================ */
+
 
 .contact-intro {
     background: var(--color-off-white);
@@ -81,9 +73,7 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* ================================
-   Section 2 — Main Request Form
-   ================================ */
+
 
 .contact-form {
     background: var(--color-white);
@@ -233,9 +223,7 @@
     margin-top: 2px;
 }
 
-/* ================================
-   Section 3 — Service Selector Cards
-   ================================ */
+
 
 .contact-service-select {
     background: var(--color-black);
@@ -313,9 +301,7 @@
     font-weight: 900;
 }
 
-/* ================================
-   Section 4 — Two Photo Hover Switch
-   ================================ */
+
 
 .contact-photo-switch {
     background: var(--color-white);
@@ -420,9 +406,7 @@
     color: rgba(5, 5, 5, 0.68);
 }
 
-/* ================================
-   Section 5 — Contact FAQ
-   ================================ */
+
 
 .contact-faq {
     background: var(--color-off-white);
@@ -460,9 +444,7 @@
     font-size: 14px;
 }
 
-/* ================================
-   Section 6 — Contact Parallax Reminder
-   ================================ */
+
 
 .contact-parallax {
     position: relative;
@@ -498,9 +480,7 @@
     font-size: 18px;
 }
 
-/* ================================
-   Section 7 — Disclaimer Panel
-   ================================ */
+
 
 .contact-disclaimer {
     background: var(--color-white);
@@ -563,9 +543,7 @@
     margin-top: 3px;
 }
 
-/* ================================
-   Responsive
-   ================================ */
+
 
 @media (max-width: 1200px) {
 
@@ -714,10 +692,7 @@
     }
 }
 
-/* ================================
-   FINAL FIX — Contact Intro balanced layout
-   wider heading, compact cards, icons top right
-   ================================ */
+
 
 .contact-intro {
     background: var(--color-off-white) !important;
@@ -871,9 +846,7 @@
     }
 }
 
-/* ================================
-   Platform Insight Section
-   ================================ */
+
 
 .platform-insight {
     background: var(--color-off-white);
@@ -1092,9 +1065,7 @@
     }
 }
 
-/* ================================
-   FIX — Contact Disclaimer full-width content + photo background
-   ================================ */
+
 
 .contact-disclaimer__panel {
     position: relative !important;
@@ -1238,9 +1209,7 @@
     }
 }
 
-/* ================================
-   Home Popular Dark Services
-   ================================ */
+
 
 .home-popular-dark {
     background: var(--color-black);

@@ -1,7 +1,4 @@
-/* ================================
-   SlabWay All Services JavaScript
-   File: assets/js/all-services.js
-   ================================ */
+
 
 (function () {
     "use strict";
@@ -49,9 +46,7 @@
         return `<i data-lucide="${escapeHtml(name)}" aria-hidden="true"></i>`;
     }
 
-    /* ================================
-       Section 1 — Overview Cards
-       ================================ */
+    
 
     function initCatalogOverviewCards() {
         const container = document.querySelector("[data-catalog-overview-grid]");
@@ -63,7 +58,7 @@
           <a
             class="catalog-overview__card card-shine"
             href="${escapeHtml(service.url)}"
-            style="--catalog-image: url('${escapeHtml(service.image)}')"
+            style="--catalog-image: url('${escapeHtml(resolveAssetUrl(service.image))}')"
             data-aos="fade-up"
             data-aos-delay="${(index % 3) * 70}"
           >
@@ -84,9 +79,7 @@
         refreshIcons();
     }
 
-    /* ================================
-       Section 2 — Interactive Showcase
-       ================================ */
+    
 
     function initCatalogShowcase() {
         const section = document.querySelector("[data-catalog-showcase]");
@@ -114,7 +107,7 @@
             .join("");
 
         const renderPhoto = (service) => {
-            photo.style.setProperty("--showcase-image", `url('${service.image}')`);
+            photo.style.setProperty("--showcase-image", `url('${resolveAssetUrl(service.image)}')`);
 
             photo.innerHTML = `
         <a class="catalog-showcase__photo-content" href="${escapeHtml(service.url)}">
@@ -165,9 +158,7 @@
         activate(services[0].id);
     }
 
-    /* ================================
-       Section 3 — Category Swiper
-       ================================ */
+    
 
     function initCatalogSwiper() {
         const swiperElement = document.querySelector("[data-catalog-swiper]");
@@ -182,7 +173,7 @@
             <a
               class="catalog-swiper-card card-shine"
               href="${escapeHtml(service.url)}"
-              style="--catalog-swiper-image: url('${escapeHtml(service.image)}')"
+              style="--catalog-swiper-image: url('${escapeHtml(resolveAssetUrl(service.image))}')"
             >
               <span class="catalog-swiper-card__icon">
                 ${icon(service.icon || "square-stack")}
@@ -242,9 +233,7 @@
         refreshIcons();
     }
 
-    /* ================================
-       Section 7 — Finish Hover Switch
-       ================================ */
+    
 
     function initCatalogFinishSwitch() {
         const section = document.querySelector("[data-catalog-finish]");
@@ -338,9 +327,7 @@
         activate(chips[0].getAttribute("data-catalog-finish-chip"));
     }
 
-    /* ================================
-       Section 5 — Reveal Accessibility
-       ================================ */
+    
 
     function initCatalogRevealAccessibility() {
         const cards = document.querySelectorAll(".catalog-icon-reveal__item");
@@ -389,9 +376,7 @@
         window.addEventListener("resize", updateParallax);
     })();
 
-    /* ================================
-       Section 10 — Final Navigator
-       ================================ */
+    
 
     function initCatalogNavigator() {
         const rows = document.querySelector("[data-catalog-navigator-rows]");

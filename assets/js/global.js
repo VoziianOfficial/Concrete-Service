@@ -1,7 +1,4 @@
-/* ================================
-   SlabWay Global JavaScript
-   File: assets/js/global.js
-   ================================ */
+
 
 (function () {
     "use strict";
@@ -52,9 +49,7 @@
         window.addEventListener("resize", debounce(handleResize, 160));
     }
 
-    /* ================================
-       Helpers
-       ================================ */
+    
 
     function get(path, fallback = "") {
         if (!path || typeof path !== "string") return fallback;
@@ -120,9 +115,7 @@
             : [];
     }
 
-    /* ================================
-       Header Render
-       ================================ */
+    
 
     function renderHeader() {
         const mount = document.querySelector(selectors.headerMount);
@@ -240,9 +233,7 @@
     `;
     }
 
-    /* ================================
-       Footer Render
-       ================================ */
+    
 
     function renderFooter() {
         const mount = document.querySelector(selectors.footerMount);
@@ -358,9 +349,7 @@
     `;
     }
 
-    /* ================================
-       Config Injection
-       ================================ */
+    
 
     function applyGlobalBusinessConfig() {
         document.querySelectorAll(selectors.configText).forEach((element) => {
@@ -403,9 +392,7 @@
 
     window.applyGlobalBusinessConfig = applyGlobalBusinessConfig;
 
-    /* ================================
-       Service List Injection
-       ================================ */
+    
 
     function injectServiceLists() {
         document.querySelectorAll(selectors.serviceList).forEach((container) => {
@@ -495,9 +482,7 @@
 
     window.injectServiceLists = injectServiceLists;
 
-    /* ================================
-       Pre-footer CTA Hydration
-       ================================ */
+    
 
     function hydratePrefooterCta() {
         document.querySelectorAll(selectors.prefooterCta).forEach((cta) => {
@@ -533,9 +518,7 @@
         });
     }
 
-    /* ================================
-       Sticky Header
-       ================================ */
+    
 
     function initStickyHeader() {
         const header = document.querySelector("[data-site-header-element]");
@@ -549,9 +532,7 @@
         window.addEventListener("scroll", update, { passive: true });
     }
 
-    /* ================================
-       Active Navigation
-       ================================ */
+    
 
     function initActiveNavigation() {
         const current = normalizePath(window.location.pathname);
@@ -577,9 +558,7 @@
         });
     }
 
-    /* ================================
-       Desktop Dropdown
-       ================================ */
+    
 
     function initDesktopDropdown() {
         const servicesItem = document.querySelector(".site-nav__item--services");
@@ -636,9 +615,7 @@
         });
     }
 
-    /* ================================
-       Mobile Menu
-       ================================ */
+    
 
     function initMobileMenu() {
         const menu = document.querySelector("[data-mobile-menu]");
@@ -716,9 +693,7 @@
         });
     }
 
-    /* ================================
-       Accordions
-       ================================ */
+    
 
     function initAccordions(scope = document) {
         scope.querySelectorAll(selectors.accordion).forEach((accordion) => {
@@ -824,9 +799,7 @@
         close: closeAccordionItem
     };
 
-    /* ================================
-       Cookie Consent
-       ================================ */
+    
 
     function renderCookieBanner() {
         const existing = document.querySelector(selectors.cookieMount);
@@ -878,9 +851,7 @@
         declineButton.addEventListener("click", () => saveChoice("declined"));
     }
 
-    /* ================================
-       AOS / Lucide
-       ================================ */
+    
 
     function initAOS() {
         if (!window.AOS) return;
@@ -916,9 +887,7 @@
         refresh: initLucideIcons
     };
 
-    /* ================================
-       Swiper Helper
-       ================================ */
+    
 
     function createSwiper(selector, options = {}) {
         if (!window.Swiper) return null;
@@ -950,9 +919,7 @@
         create: createSwiper
     };
 
-    /* ================================
-       Parallax
-       ================================ */
+    
 
     function initParallaxSections() {
         const sections = document.querySelectorAll(selectors.parallax);
@@ -992,9 +959,7 @@
         window.addEventListener("resize", debounce(update, 160));
     }
 
-    /* ================================
-       Resize
-       ================================ */
+    
 
     function handleResize() {
         document.querySelectorAll("[data-accordion-item].is-open").forEach((item) => {

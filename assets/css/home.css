@@ -1,12 +1,6 @@
-/* ================================
-   SlabWay Homepage Styles
-   File: assets/css/home.css
-   Prefix: .home-*
-   ================================ */
 
-/* ================================
-   Home Hero
-   ================================ */
+
+
 
 .home-hero {
     --hero-image: url("../images/hero-home.jpg");
@@ -65,9 +59,7 @@
     transform: translateX(3px);
 }
 
-/* ================================
-   Section 1 — Category Cards
-   ================================ */
+
 
 .home-category {
     background: var(--color-off-white);
@@ -183,9 +175,7 @@
     color: var(--color-white);
 }
 
-/* ================================
-   Section 2 — Platform Intro
-   ================================ */
+
 
 .home-platform {
     background: var(--color-white);
@@ -312,9 +302,7 @@
     line-height: 1.5;
 }
 
-/* ================================
-   Section 3 — Sticky Provider Path
-   ================================ */
+
 
 .home-path {
     background: var(--color-black);
@@ -406,9 +394,7 @@
     text-transform: uppercase;
 }
 
-/* ================================
-   Section 4 — Icon Reveal Cards
-   ================================ */
+
 
 .home-icon-reveal {
     background: var(--color-charcoal);
@@ -499,9 +485,7 @@
     color: var(--color-white);
 }
 
-/* ================================
-   Section 5 — Dual Photo Hover
-   ================================ */
+
 
 .home-dual-photo {
     background: var(--color-white);
@@ -606,9 +590,7 @@
     color: rgba(5, 5, 5, 0.68);
 }
 
-/* ================================
-   Section 8 — Compare Accordion
-   ================================ */
+
 
 .home-compare {
     background: var(--color-white);
@@ -646,9 +628,7 @@
     font-size: 14px;
 }
 
-/* ================================
-   Section 11 — Service Navigator
-   ================================ */
+
 
 .home-navigator {
     background: var(--color-white);
@@ -772,9 +752,7 @@
     font-size: 15px;
 }
 
-/* ================================
-   Shared Homepage Responsive
-   ================================ */
+
 
 @media (max-width: 1200px) {
 
@@ -1051,9 +1029,7 @@
     }
 }
 
-/* ================================
-   FINAL GLOBAL-SAFE STICKY FIX
-   ================================ */
+
 
 .home-path,
 .home-path .container-wide,
@@ -1098,10 +1074,7 @@
     }
 }
 
-/* ================================
-   FINAL FIX — Home Path Step Layout
-   meta left top, icon right top, bigger content
-   ================================ */
+
 
 .home-path__step {
     position: relative !important;
@@ -1202,9 +1175,7 @@
     }
 }
 
-/* ================================
-   Home Depth — Parallax Photo Cards
-   ================================ */
+
 
 .home-depth {
     position: relative;
@@ -1402,9 +1373,7 @@
     }
 }
 
-/* ================================
-   Home Flip Cards — Photo Service Cards
-   ================================ */
+
 
 .home-flip {
     background: var(--color-white);
@@ -1614,9 +1583,7 @@
         min-height: 76px;
     }
 }
-/* ================================
-   Home Split Swiper — Reference Inspired
-   ================================ */
+
 
 .home-split-swiper {
     background: var(--color-white);
@@ -1904,9 +1871,7 @@
 }
 
 
-/* ================================
-   Home Value — White Split Photo Section
-   ================================ */
+
 
 .home-value {
     background: var(--color-white);
@@ -2103,9 +2068,7 @@
 }
 
 
-/* ================================
-   Home Proof Strip
-   ================================ */
+
 
 .home-proof-strip {
     background: var(--color-white);
@@ -2257,9 +2220,7 @@
 
 
 
-/* ================================
-   FIX — Smooth proof strip reveal
-   ================================ */
+
 
 .home-proof-strip__grid {
     will-change: transform, opacity;
@@ -2275,10 +2236,7 @@
     backface-visibility: hidden;
 }
 
-/* ================================
-   UPGRADE — Home Path black / white split
-   left sticky unchanged, right cards refined
-   ================================ */
+
 
 .home-path {
     background: linear-gradient(90deg,
@@ -2303,7 +2261,7 @@
     overflow: visible !important;
 }
 
-/* левая часть — только пространство вокруг sticky, сам sticky не меняем */
+
 .home-path__sticky {
     padding: 110px clamp(28px, 4vw, 64px) 110px clamp(20px, 4vw, 56px);
 }
@@ -2338,7 +2296,7 @@
     max-width: 48ch;
 }
 
-/* правая белая часть */
+
 .home-path__steps {
     display: grid !important;
     gap: 0 !important;
@@ -2348,7 +2306,7 @@
     border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* лаконичные дорогие карточки */
+
 .home-path__step,
 .home-path__step:nth-child(odd),
 .home-path__step:nth-child(even) {
@@ -2443,7 +2401,7 @@
     opacity: 1 !important;
 }
 
-/* responsive */
+
 @media (max-width: 1024px) {
     .home-path {
         background: var(--color-black) !important;

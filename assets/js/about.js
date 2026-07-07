@@ -1,7 +1,4 @@
-/* ================================
-   SlabWay About Page JavaScript
-   File: assets/js/about.js
-   ================================ */
+
 
 (function () {
     "use strict";
@@ -39,9 +36,7 @@
         return `<i data-lucide="${escapeHtml(name)}" aria-hidden="true"></i>`;
     }
 
-    /* ================================
-       About Process Swiper
-       ================================ */
+    
 
     function initAboutProcessSwiper() {
         const swiperElement = document.querySelector("[data-about-process-swiper]");
@@ -151,9 +146,7 @@
         refreshIcons();
     }
 
-    /* ================================
-       Reveal Board Accessibility
-       ================================ */
+    
 
     function initAboutRevealBoard() {
         const cards = document.querySelectorAll(".about-reveal-board__item");
@@ -177,9 +170,7 @@
         });
     }
 
-    /* ================================
-       About Story Photo Emphasis
-       ================================ */
+    
 
     function initAboutStoryPhotos() {
         const section = document.querySelector("[data-about-story]");

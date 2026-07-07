@@ -1,12 +1,6 @@
-/* ================================
-   SlabWay Service Detail Page Styles
-   File: assets/css/services.css
-   Prefix: .service-detail-*
-   ================================ */
 
-/* ================================
-   Service Hero
-   ================================ */
+
+
 
 .service-hero {
     --hero-image: url("../images/service-driveways.jpg");
@@ -38,9 +32,7 @@
     color: rgba(255, 255, 255, 0.52);
 }
 
-/* ================================
-   Section 1 — Overview Split
-   ================================ */
+
 
 .service-detail-overview {
     background: var(--color-white);
@@ -156,9 +148,7 @@
     color: rgba(255, 255, 255, 0.72);
 }
 
-/* ================================
-   Section 2 — Provider Comparison Factors
-   ================================ */
+
 
 .service-detail-factors {
     background: var(--color-off-white);
@@ -216,9 +206,7 @@
     line-height: 1.62;
 }
 
-/* ================================
-   Section 3 — Sticky Request Prep
-   ================================ */
+
 
 .service-detail-prep {
     background: var(--color-black);
@@ -290,9 +278,7 @@
     line-height: 1.58;
 }
 
-/* ================================
-   Section 4 — Service Specific Swiper
-   ================================ */
+
 
 .service-detail-swiper {
     background: var(--color-white);
@@ -370,9 +356,7 @@
     line-height: 1.65;
 }
 
-/* ================================
-   Section 5 — Two Large Photos Hover Switch
-   ================================ */
+
 
 .service-detail-photo-switch {
     background: var(--color-off-white);
@@ -477,9 +461,7 @@
     color: rgba(5, 5, 5, 0.68);
 }
 
-/* ================================
-   Section 6 — Parallax Service CTA
-   ================================ */
+
 
 .service-detail-parallax {
     position: relative;
@@ -515,9 +497,7 @@
     font-size: 18px;
 }
 
-/* ================================
-   Section 7 — FAQ
-   ================================ */
+
 
 .service-detail-faq {
     background: var(--color-white);
@@ -555,9 +535,7 @@
     font-size: 14px;
 }
 
-/* ================================
-   Section 8 — Related Services Slider
-   ================================ */
+
 
 .service-detail-related {
     background: var(--color-off-white);
@@ -629,9 +607,7 @@
     line-height: 1.62;
 }
 
-/* ================================
-   Responsive
-   ================================ */
+
 
 @media (max-width: 1200px) {
     .service-detail-factors__grid {
@@ -803,9 +779,7 @@
     }
 }
 
-/* ================================
-   Service Request Snapshot
-   ================================ */
+
 
 .service-snapshot {
     background: var(--color-white);
@@ -1025,9 +999,7 @@
     }
 }
 
-/* ================================
-   FIX — Service Snapshot smaller title + full photo
-   ================================ */
+
 
 .service-snapshot__hero {
     align-items: stretch !important;
@@ -1044,7 +1016,7 @@
     letter-spacing: -0.065em !important;
 }
 
-/* главное фото справа — на всю карточку */
+
 .service-snapshot__main-photo {
     position: relative !important;
     width: 100% !important;
@@ -1054,7 +1026,7 @@
     overflow: hidden !important;
 }
 
-/* нижнее маленькое фото тоже растягиваем корректно */
+
 .service-snapshot__side-photo {
     position: relative !important;
     width: 100% !important;
@@ -1101,9 +1073,7 @@
     }
 }
 
-/* ================================
-   Platform Standards — Blue Accent
-   ================================ */
+
 
 .platform-standards {
     background: var(--color-white);
@@ -1264,9 +1234,7 @@
     }
 }
 
-/* ================================
-   FIX — Platform Standards wider title + less top padding
-   ================================ */
+
 
 .platform-standards {
     padding-top: clamp(48px, 5vw, 68px) !important;
@@ -1281,9 +1249,7 @@
     max-width: 1320px !important;
 }
 
-/* ================================
-   Service Insight Swiper
-   ================================ */
+
 
 .service-insight {
     background: var(--color-white);
@@ -1502,9 +1468,7 @@
     }
 }
 
-/* ================================
-   FIX — Service Insight top-right cut corner
-   ================================ */
+
 
 .service-insight__right {
     clip-path: polygon(0 0, 84% 0, 100% 16%, 100% 100%, 0 100%) !important;

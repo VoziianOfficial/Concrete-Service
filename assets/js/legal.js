@@ -1,7 +1,4 @@
-/* ================================
-   SlabWay Legal JavaScript
-   File: assets/js/legal.js
-   ================================ */
+
 
 (function () {
     "use strict";

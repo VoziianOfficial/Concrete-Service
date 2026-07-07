@@ -1,7 +1,4 @@
-/* ================================
-   SlabWay Contact Page JavaScript
-   File: assets/js/contact.js
-   ================================ */
+
 
 (function () {
     "use strict";
@@ -55,9 +52,7 @@
         }, config) ?? fallback;
     }
 
-    /* ================================
-       Service Select
-       ================================ */
+    
 
     function hydrateContactServiceSelect() {
         const select = document.querySelector("[data-contact-service-select]");
@@ -75,9 +70,7 @@
     `;
     }
 
-    /* ================================
-       Contact Form
-       ================================ */
+    
 
     function initContactForm() {
         const form = document.querySelector("[data-contact-form]");
@@ -303,9 +296,7 @@
         }
     }
 
-    /* ================================
-       Service Selector Cards
-       ================================ */
+    
 
     function initContactServiceCards() {
         const container = document.querySelector("[data-contact-service-cards]");
@@ -401,9 +392,7 @@
         counters.forEach((counter) => observer.observe(counter));
     })();
 
-    /* ================================
-       Photo Switch
-       ================================ */
+    
 
     function initContactPhotoSwitch() {
         const section = document.querySelector("[data-contact-photo-switch]");

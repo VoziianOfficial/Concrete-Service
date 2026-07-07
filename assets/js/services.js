@@ -1,8 +1,4 @@
-/* ================================
-   SlabWay Service Detail JavaScript
-   File: assets/js/services.js
-   Used by all individual service pages
-   ================================ */
+
 
 (function () {
     "use strict";
@@ -894,9 +890,7 @@
         return globalServices.find((service) => service.id === serviceId) || null;
     }
 
-    /* ================================
-       Hydration
-       ================================ */
+    
 
     function hydrateServicePage(service) {
         const globalService = matchingGlobalService(service.id);
@@ -978,9 +972,7 @@
         refreshIcons();
     }
 
-    /* ================================
-       Related Services
-       ================================ */
+    
 
     function initRelatedServices(currentService) {
         const swiperElement = document.querySelector("[data-service-related-swiper]");
@@ -1079,9 +1071,7 @@
         });
     })();
 
-    /* ================================
-       FAQ Schema
-       ================================ */
+    
 
     function injectFaqSchema(service) {
         if (!service.faqs || !service.faqs.length) return;

@@ -1,7 +1,4 @@
-/* ================================
-   SlabWay Homepage JavaScript
-   File: assets/js/home.js
-   ================================ */
+
 
 (function () {
     "use strict";
@@ -43,9 +40,7 @@
         return `<i data-lucide="${escapeHtml(name)}" aria-hidden="true"></i>`;
     }
 
-    /* ================================
-       Home Scenario Swiper
-       ================================ */
+    
 
     function initHomeScenarioSwiper() {
         const swiperElement = document.querySelector("[data-home-scenario-swiper]");
@@ -170,9 +165,7 @@
         refreshIcons();
     }
 
-    /* ================================
-       Home Dual Photo Hover Switch
-       ================================ */
+    
 
     function initHomeDualPhotoSwitch() {
         const section = document.querySelector("[data-home-dual-photo]");
@@ -227,9 +220,7 @@
         activate(chips[0].getAttribute("data-home-dual-chip"));
     }
 
-    /* ================================
-       Home Final Service Navigator
-       ================================ */
+    
 
     function initHomeNavigator() {
         const section = document.querySelector("[data-home-navigator]");
@@ -357,9 +348,7 @@
         });
     })();
 
-    /* ================================
-       Icon Reveal / Hover Accessibility
-       ================================ */
+    
 
     function initHomeHoverPanels() {
         const revealCards = document.querySelectorAll(".home-icon-reveal__card");

@@ -1,12 +1,6 @@
-/* ================================
-   SlabWay About Page Styles
-   File: assets/css/about.css
-   Prefix: .about-*
-   ================================ */
 
-/* ================================
-   About Hero
-   ================================ */
+
+
 
 .about-hero {
     --hero-image: url("../images/hero-about.jpg");
@@ -16,9 +10,7 @@
     max-width: 900px;
 }
 
-/* ================================
-   Section 1 — Platform Statement
-   ================================ */
+
 
 .about-statement {
     background: var(--color-white);
@@ -83,9 +75,7 @@
     color: rgba(255, 255, 255, 0.72);
 }
 
-/* ================================
-   Section 2 — Story With Two Photos
-   ================================ */
+
 
 .about-story {
     background: var(--color-off-white);
@@ -192,9 +182,7 @@
     margin-top: 4px;
 }
 
-/* ================================
-   Section 3 — Sticky Values
-   ================================ */
+
 
 .about-values {
     background: var(--color-black);
@@ -263,9 +251,7 @@
     font-size: 15px;
 }
 
-/* ================================
-   Section 4 — Process Swiper
-   ================================ */
+
 
 .about-process-swiper {
     background: var(--color-white);
@@ -338,9 +324,7 @@
     line-height: 1.65;
 }
 
-/* ================================
-   Section 5 — Icon-to-Text Reveal Board
-   ================================ */
+
 
 .about-reveal-board {
     background: var(--color-charcoal);
@@ -427,9 +411,7 @@
     transform: translateY(0);
 }
 
-/* ================================
-   Section 6 — Parallax Trust Band
-   ================================ */
+
 
 .about-parallax {
     position: relative;
@@ -489,9 +471,7 @@
     font-weight: 800;
 }
 
-/* ================================
-   Section 7 — Provider Compare Layout
-   ================================ */
+
 
 .about-provider-compare {
     background: var(--color-white);
@@ -584,9 +564,7 @@
     color: rgba(255, 255, 255, 0.72);
 }
 
-/* ================================
-   Section 8 — About FAQ
-   ================================ */
+
 
 .about-faq {
     background: var(--color-off-white);
@@ -624,9 +602,7 @@
     font-size: 14px;
 }
 
-/* ================================
-   Section 9 — Availability Note
-   ================================ */
+
 
 .about-availability {
     background: var(--color-white);
@@ -690,9 +666,7 @@
     line-height: 1.55;
 }
 
-/* ================================
-   Section 10 — Editorial CTA Cards
-   ================================ */
+
 
 .about-editorial {
     background: var(--color-off-white);
@@ -772,9 +746,7 @@
     color: var(--color-accent);
 }
 
-/* ================================
-   Responsive
-   ================================ */
+
 
 @media (max-width: 1200px) {
 
@@ -1003,10 +975,7 @@
 }
 
 
-/* ================================
-   UPGRADE — About Values black / white split
-   left sticky unchanged, right cards refined
-   ================================ */
+
 
 .about-values {
     background: linear-gradient(90deg,
@@ -1030,7 +999,7 @@
     overflow: visible !important;
 }
 
-/* левый sticky-блок по содержанию не трогаем */
+
 .about-values__sticky {
     position: sticky !important;
     position: -webkit-sticky !important;
@@ -1066,7 +1035,7 @@
     margin-top: 4px !important;
 }
 
-/* правая белая часть */
+
 .about-values__cards {
     display: grid !important;
     gap: 0 !important;
@@ -1075,7 +1044,7 @@
     padding-left: clamp(28px, 4vw, 64px) !important;
 }
 
-/* лаконичные белые карточки */
+
 .about-values__card {
     position: relative !important;
     min-height: 178px !important;
@@ -1144,7 +1113,7 @@
     line-height: 1.68 !important;
 }
 
-/* responsive */
+
 @media (max-width: 1024px) {
     .about-values {
         background: var(--color-black) !important;
@@ -1205,9 +1174,7 @@
     }
 }
 
-/* ================================
-   Home Precision — Aggregator Split
-   ================================ */
+
 
 .home-precision {
     background: var(--color-white);
@@ -1461,9 +1428,7 @@
 }
 
 
-/* ================================
-   FIX — About Editorial cards compact + icon top right
-   ================================ */
+
 
 .about-editorial__card {
     position: relative !important;
@@ -1513,7 +1478,7 @@
     margin-top: 18px !important;
 }
 
-/* вторая тёмная карточка — сохраняем премиальный контраст */
+
 .about-editorial__card:nth-child(2) i,
 .about-editorial__card:nth-child(2) svg {
     color: var(--color-blue) !important;

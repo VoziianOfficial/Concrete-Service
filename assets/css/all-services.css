@@ -1,12 +1,6 @@
-/* ================================
-   SlabWay All Services Page Styles
-   File: assets/css/all-services.css
-   Prefix: .catalog-*
-   ================================ */
 
-/* ================================
-   All Services Hero
-   ================================ */
+
+
 
 .catalog-hero {
     --hero-image: url("../images/hero-services.jpg");
@@ -16,9 +10,7 @@
     max-width: 920px;
 }
 
-/* ================================
-   Section 1 — Overview Cards Grid
-   ================================ */
+
 
 .catalog-overview {
     background: var(--color-off-white);
@@ -128,9 +120,7 @@
     color: var(--color-white);
 }
 
-/* ================================
-   Section 2 — Interactive Showcase
-   ================================ */
+
 
 .catalog-showcase {
     background: var(--color-black);
@@ -258,9 +248,7 @@
     color: var(--color-white);
 }
 
-/* ================================
-   Section 3 — Service Categories Swiper
-   ================================ */
+
 
 .catalog-swiper {
     background: var(--color-white);
@@ -332,9 +320,7 @@
     stroke-width: 1.45;
 }
 
-/* ================================
-   Section 4 — Sticky Checklist
-   ================================ */
+
 
 .catalog-checklist {
     background: var(--color-off-white);
@@ -404,9 +390,7 @@
     font-size: 15px;
 }
 
-/* ================================
-   Section 5 — Icon Reveal Factors
-   ================================ */
+
 
 .catalog-icon-reveal {
     background: var(--color-charcoal);
@@ -493,9 +477,7 @@
     transform: translateY(0);
 }
 
-/* ================================
-   Section 6 — Parallax Surface
-   ================================ */
+
 
 .catalog-parallax {
     position: relative;
@@ -531,9 +513,7 @@
     font-size: 18px;
 }
 
-/* ================================
-   Section 7 — Finish Hover Section
-   ================================ */
+
 
 .catalog-finish {
     background: var(--color-white);
@@ -638,9 +618,7 @@
     color: rgba(5, 5, 5, 0.68);
 }
 
-/* ================================
-   Section 8 — FAQ
-   ================================ */
+
 
 .catalog-faq {
     background: var(--color-off-white);
@@ -678,9 +656,7 @@
     font-size: 14px;
 }
 
-/* ================================
-   Section 9 — Related Scenarios
-   ================================ */
+
 
 .catalog-scenarios {
     background: var(--color-white);
@@ -742,9 +718,7 @@
     font-weight: 900;
 }
 
-/* ================================
-   Section 10 — Final Navigator
-   ================================ */
+
 
 .catalog-navigator {
     background: var(--color-black);
@@ -841,9 +815,7 @@
     transform: translateX(5px);
 }
 
-/* ================================
-   Responsive
-   ================================ */
+
 
 @media (max-width: 1200px) {
     .catalog-overview__grid {
@@ -1059,9 +1031,7 @@
     }
 }
 
-/* ================================
-   Home Service Mosaic Categories
-   ================================ */
+
 
 .home-service-mosaic {
     background: var(--color-white);
@@ -1282,9 +1252,7 @@
     }
 }
 
-/* ================================
-   UPGRADE — Catalog Checklist black / white split
-   ================================ */
+
 
 .catalog-checklist {
     background: linear-gradient(90deg,
@@ -1308,7 +1276,7 @@
     overflow: visible !important;
 }
 
-/* левая sticky-часть остаётся такой же по содержанию */
+
 .catalog-checklist__sticky {
     position: sticky !important;
     position: -webkit-sticky !important;
@@ -1344,7 +1312,7 @@
     margin-top: 4px !important;
 }
 
-/* правая белая часть */
+
 .catalog-checklist__cards {
     display: grid !important;
     gap: 0 !important;
@@ -1353,7 +1321,7 @@
     padding-left: clamp(28px, 4vw, 64px) !important;
 }
 
-/* аккуратные дорогие карточки-строки */
+
 .catalog-checklist__card {
     position: relative !important;
     min-height: 165px !important;
@@ -1382,7 +1350,7 @@
     background: rgba(53, 168, 255, 0.045) !important;
 }
 
-/* иконки справа сверху */
+
 .catalog-checklist__card i,
 .catalog-checklist__card svg {
     position: absolute !important;
@@ -1423,7 +1391,7 @@
     line-height: 1.68 !important;
 }
 
-/* tablet / mobile */
+
 @media (max-width: 1024px) {
     .catalog-checklist {
         background: var(--color-black) !important;
@@ -1485,9 +1453,7 @@
 }
 
 
-/* ================================
-   Service Matching Overview
-   ================================ */
+
 
 .service-match-overview {
     background: var(--color-white);
@@ -1689,9 +1655,7 @@
     }
 }
 
-/* ================================
-   FIX — Service overview title + full photo
-   ================================ */
+
 
 .service-match-overview__top {
     align-items: stretch !important;
@@ -1747,9 +1711,7 @@
     }
 }
 
-/* ================================
-   FIX — Catalog Finish single large photo
-   ================================ */
+
 
 .catalog-finish__photos--single {
     display: block !important;
@@ -1815,9 +1777,7 @@
     }
 }
 
-/* ================================
-   Catalog Proof Strip — 4 Cards Row
-   ================================ */
+
 
 .catalog-proof-strip {
     background: var(--color-white);
@@ -1965,9 +1925,7 @@
     }
 }
 
-/* ================================
-   Catalog Red Parallax CTA
-   ================================ */
+
 
 .catalog-red-parallax {
     position: relative;

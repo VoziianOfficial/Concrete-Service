@@ -1,12 +1,6 @@
-/* ================================
-   SlabWay Legal Page Styles
-   File: assets/css/legal.css
-   Prefix: .legal-*
-   ================================ */
 
-/* ================================
-   Legal Hero
-   ================================ */
+
+
 
 .legal-hero {
     --hero-image: url("../images/hero-services.jpg");
@@ -38,9 +32,7 @@
     backdrop-filter: blur(8px);
 }
 
-/* ================================
-   Legal Layout
-   ================================ */
+
 
 .legal-page {
     background: var(--color-off-white);
@@ -165,9 +157,7 @@
     line-height: 1.58;
 }
 
-/* ================================
-   Legal Content
-   ================================ */
+
 
 .legal-content {
     display: grid;
@@ -386,9 +376,7 @@
     color: var(--color-black);
 }
 
-/* ================================
-   Cookie Page Special
-   ================================ */
+
 
 .cookie-table {
     overflow: hidden;
@@ -433,9 +421,7 @@
     color: var(--color-white);
 }
 
-/* ================================
-   Legal Mini CTA
-   ================================ */
+
 
 .legal-mini-cta {
     border-radius: var(--radius-lg);
@@ -459,9 +445,7 @@
     font-size: 14px;
 }
 
-/* ================================
-   Responsive
-   ================================ */
+
 
 @media (max-width: 1100px) {
     .legal-layout {

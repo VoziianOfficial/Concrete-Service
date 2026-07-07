@@ -1,7 +1,4 @@
-/* ================================
-   SlabWay Global Styles
-   File: assets/css/global.css
-   ================================ */
+
 
 :root {
     --color-black: #050505;
@@ -42,9 +39,7 @@
     --transition-slow: 520ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ================================
-   Reset / Base
-   ================================ */
+
 
 *,
 *::before,
@@ -156,9 +151,7 @@ h6 {
     color: var(--color-white);
 }
 
-/* ================================
-   Accessibility
-   ================================ */
+
 
 .skip-link {
     position: fixed;
@@ -196,9 +189,7 @@ h6 {
     }
 }
 
-/* ================================
-   Layout Utilities
-   ================================ */
+
 
 .page-shell {
     position: relative;
@@ -293,9 +284,7 @@ h6 {
     white-space: nowrap;
 }
 
-/* ================================
-   Typography
-   ================================ */
+
 
 .eyebrow,
 .section-kicker {
@@ -419,9 +408,7 @@ h4,
     max-width: 640px;
 }
 
-/* ================================
-   Buttons
-   ================================ */
+
 
 .btn-row {
     display: flex;
@@ -571,9 +558,7 @@ h4,
     transform: translateX(4px);
 }
 
-/* ================================
-   Header
-   ================================ */
+
 
 .site-header {
     position: sticky;
@@ -754,9 +739,7 @@ h4,
     height: 22px;
 }
 
-/* ================================
-   Services Dropdown
-   ================================ */
+
 
 .services-dropdown {
     position: absolute;
@@ -858,9 +841,7 @@ h4,
     line-height: 1.4;
 }
 
-/* ================================
-   Mobile Menu
-   ================================ */
+
 
 .mobile-menu {
     position: fixed;
@@ -1014,9 +995,7 @@ h4,
     justify-content: center;
 }
 
-/* ================================
-   Hero Shared
-   ================================ */
+
 
 .page-hero {
     position: relative;
@@ -1081,9 +1060,7 @@ h4,
     font-weight: 800;
 }
 
-/* ================================
-   Cards / Reusable Effects
-   ================================ */
+
 
 .premium-card {
     position: relative;
@@ -1165,9 +1142,7 @@ h4,
     stroke-width: 1.8;
 }
 
-/* ================================
-   Accordions
-   ================================ */
+
 
 .accordion {
     display: grid;
@@ -1261,9 +1236,7 @@ h4,
     color: rgba(255, 255, 255, 0.68);
 }
 
-/* ================================
-   Swiper Shared
-   ================================ */
+
 
 .swiper {
     width: 100%;
@@ -1336,9 +1309,7 @@ h4,
     color: rgba(255, 255, 255, 0.66);
 }
 
-/* ================================
-   Forms Base
-   ================================ */
+
 
 .form-grid {
     display: grid;
@@ -1476,9 +1447,7 @@ h4,
     pointer-events: none;
 }
 
-/* ================================
-   Pre-footer CTA
-   ================================ */
+
 
 .site-prefooter {
     padding: 86px 0;
@@ -1552,9 +1521,7 @@ h4,
     }
 }
 
-/* ================================
-   Footer
-   ================================ */
+
 
 .site-footer {
     background: var(--color-black);
@@ -1669,9 +1636,7 @@ h4,
     color: var(--color-accent);
 }
 
-/* ================================
-   Cookie Banner
-   ================================ */
+
 
 .cookie-banner {
     position: fixed;
@@ -1726,9 +1691,7 @@ h4,
     padding: 12px 15px;
 }
 
-/* ================================
-   Legal / Trust Note
-   ================================ */
+
 
 .aggregator-note {
     position: relative;
@@ -1758,9 +1721,7 @@ h4,
     height: fit-content;
 }
 
-/* ================================
-   Responsive
-   ================================ */
+
 
 @media (max-width: 1200px) {
     .site-header__inner {
@@ -2072,10 +2033,7 @@ h4,
     }
 }
 
-/* ================================
-   FINAL HEADER FIX — always fixed
-   Put at the VERY END of global.css
-   ================================ */
+
 
 [data-site-header] {
     position: fixed !important;
