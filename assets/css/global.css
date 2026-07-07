@@ -1495,7 +1495,7 @@ h4,
     border-radius: var(--radius-lg);
     background:
         linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
-        url("../images/cta-concrete.jpg") center / cover no-repeat;
+        url("../images/hero-contact.jpg") center / cover no-repeat;
     color: var(--color-white);
     box-shadow: var(--shadow-dark);
 }

@@ -147,7 +147,7 @@ window.SLABWAY_CONFIG = {
         primaryUrl: "contact.html",
         secondaryLabel: "View Services",
         secondaryUrl: "all-services.html",
-        image: "assets/images/cta-concrete.jpg"
+        image: "assets/images/hero-contact.jpg"
     },
 
     footer: {
