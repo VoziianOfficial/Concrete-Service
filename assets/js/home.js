@@ -9,6 +9,7 @@
     document.addEventListener("DOMContentLoaded", initHomePage);
 
     function initHomePage() {
+        initHomeServiceCutGrid();
         initHomeScenarioSwiper();
         initHomeDualPhotoSwitch();
         initHomeNavigator();
@@ -47,7 +48,39 @@
         return `<i data-lucide="${escapeHtml(name)}" aria-hidden="true"></i>`;
     }
 
-    
+    function initHomeServiceCutGrid() {
+        const grid = document.querySelector("[data-service-cut-grid]");
+        if (!grid || !services.length) return;
+
+        grid.innerHTML = services
+            .map((service) => {
+                const name = service.name || "";
+                const summary = service.summary || "";
+                const url = service.url || "#";
+                const image = service.image || "assets/images/hero-services.jpg";
+                const iconName = service.icon || "layers-3";
+
+                return `
+          <a class="service-cut-grid__card" href="${escapeHtml(url)}">
+            <span class="service-cut-grid__image">
+              <img src="${escapeHtml(image)}" alt="${escapeHtml(name)} provider comparison category" loading="lazy">
+            </span>
+
+            <span class="service-cut-grid__content">
+              <h3>${escapeHtml(name)}</h3>
+              <p>${escapeHtml(summary)}</p>
+              <span class="service-cut-grid__link">View category</span>
+            </span>
+
+            <span class="service-cut-grid__icon">
+              ${icon(iconName)}
+            </span>
+          </a>
+        `;
+            })
+            .join("");
+    }
+
 
     function initHomeScenarioSwiper() {
         const swiperElement = document.querySelector("[data-home-scenario-swiper]");

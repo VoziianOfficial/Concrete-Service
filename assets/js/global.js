@@ -1247,6 +1247,7 @@
                 ".platform-standards__heading",
                 ".home-popular-dark__top",
                 ".home-service-mosaic__top",
+                ".service-cut-grid__top",
                 ".home-flip__heading",
                 ".home-value__heading",
                 ".service-detail-related__top",
@@ -1306,6 +1307,7 @@
         applyStagger(
             [
                 ".home-category__card",
+                ".service-cut-grid__card",
                 ".home-flip__card",
                 ".home-service-mosaic__card",
                 ".home-popular-dark__card",
