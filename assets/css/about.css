@@ -990,3 +990,173 @@
         min-height: 320px;
     }
 }
+
+
+/* ================================
+   UPGRADE — About Values black / white split
+   left sticky unchanged, right cards refined
+   ================================ */
+
+.about-values {
+    background: linear-gradient(90deg,
+            var(--color-black) 0%,
+            var(--color-black) 50%,
+            var(--color-white) 50%,
+            var(--color-white) 100%) !important;
+    color: var(--color-white);
+    overflow: visible !important;
+}
+
+.about-values .container-wide {
+    overflow: visible !important;
+}
+
+.about-values__grid {
+    display: grid !important;
+    grid-template-columns: minmax(360px, 0.78fr) minmax(0, 1fr) !important;
+    gap: 0 !important;
+    align-items: start !important;
+    overflow: visible !important;
+}
+
+/* левый sticky-блок по содержанию не трогаем */
+.about-values__sticky {
+    position: sticky !important;
+    position: -webkit-sticky !important;
+    top: calc(var(--header-height) + 36px) !important;
+    align-self: start !important;
+    z-index: 5 !important;
+    padding-right: clamp(28px, 4vw, 64px) !important;
+}
+
+/* правая белая часть */
+.about-values__cards {
+    display: grid !important;
+    gap: 0 !important;
+    background: var(--color-white) !important;
+    color: var(--color-black) !important;
+    padding-left: clamp(28px, 4vw, 64px) !important;
+}
+
+/* лаконичные белые карточки */
+.about-values__card {
+    position: relative !important;
+    min-height: 178px !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.12) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: var(--color-black) !important;
+    padding: 34px 92px 34px 0 !important;
+    box-shadow: none !important;
+    transition:
+        background var(--transition-base),
+        border-color var(--transition-base),
+        padding-left var(--transition-base);
+}
+
+.about-values__card:first-child {
+    border-top: 1px solid rgba(5, 5, 5, 0.12) !important;
+}
+
+.about-values__card:hover {
+    transform: none !important;
+    padding-left: 18px !important;
+    border-color: rgba(53, 168, 255, 0.45) !important;
+    background: rgba(53, 168, 255, 0.045) !important;
+}
+
+.about-values__card i,
+.about-values__card svg {
+    position: absolute !important;
+    top: 34px !important;
+    right: 0 !important;
+    width: 52px !important;
+    height: 52px !important;
+    color: var(--color-blue) !important;
+    stroke-width: 1.35 !important;
+    opacity: 0.92 !important;
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base),
+        opacity var(--transition-base);
+}
+
+.about-values__card:hover i,
+.about-values__card:hover svg {
+    transform: translateY(-4px) scale(1.04);
+    color: var(--color-blue-hover) !important;
+    opacity: 1 !important;
+}
+
+.about-values__card h3 {
+    max-width: 620px !important;
+    padding-right: 0 !important;
+    color: var(--color-black) !important;
+    font-size: clamp(25px, 2.25vw, 36px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.055em !important;
+}
+
+.about-values__card p {
+    max-width: 680px !important;
+    margin-top: 14px !important;
+    color: rgba(5, 5, 5, 0.62) !important;
+    font-size: 15px !important;
+    line-height: 1.68 !important;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+    .about-values {
+        background: var(--color-black) !important;
+    }
+
+    .about-values__grid {
+        grid-template-columns: 1fr !important;
+        gap: 54px !important;
+    }
+
+    .about-values__sticky {
+        position: static !important;
+        top: auto !important;
+        padding-right: 0 !important;
+    }
+
+    .about-values__cards {
+        padding: 52px 24px !important;
+        margin-inline: -24px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-values__cards {
+        padding: 42px 20px !important;
+        margin-inline: -20px !important;
+    }
+
+    .about-values__card {
+        min-height: auto !important;
+        padding: 32px 66px 32px 0 !important;
+    }
+
+    .about-values__card:hover {
+        padding-left: 0 !important;
+    }
+
+    .about-values__card h3 {
+        font-size: clamp(23px, 7vw, 32px) !important;
+    }
+
+    .about-values__card p {
+        font-size: 14px !important;
+    }
+
+    .about-values__card i,
+    .about-values__card svg {
+        top: 32px !important;
+        width: 42px !important;
+        height: 42px !important;
+    }
+}
