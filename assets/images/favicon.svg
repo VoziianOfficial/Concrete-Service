@@ -1,0 +1,46 @@
+<svg width="64" height="64" viewBox="0 0 62 54" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="favicon-title favicon-desc">
+  <title id="favicon-title">SlabWay favicon</title>
+  <desc id="favicon-desc">Concrete slab mark used as the site favicon</desc>
+  <path
+    d="M8 18.5L28.8 7.5C30.2 6.8 31.8 6.8 33.2 7.5L54 18.5L33.2 29.5C31.8 30.2 30.2 30.2 28.8 29.5L8 18.5Z"
+    fill="#D8D4CC"
+  />
+  <path
+    d="M8 18.5V32.8C8 34.2 8.8 35.5 10.1 36.2L28.9 46.1C30.2 46.8 31.8 46.8 33.1 46.1L51.9 36.2C53.2 35.5 54 34.2 54 32.8V18.5L33.2 29.5C31.8 30.2 30.2 30.2 28.8 29.5L8 18.5Z"
+    fill="#8B877F"
+  />
+  <path
+    d="M8 18.5L28.8 7.5C30.2 6.8 31.8 6.8 33.2 7.5L54 18.5M8 18.5L28.8 29.5C30.2 30.2 31.8 30.2 33.2 29.5L54 18.5M8 18.5V32.8C8 34.2 8.8 35.5 10.1 36.2L28.9 46.1C30.2 46.8 31.8 46.8 33.1 46.1L51.9 36.2C53.2 35.5 54 34.2 54 32.8V18.5"
+    stroke="#FFFFFF"
+    stroke-width="2"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M18.5 18.5L31 12L43.5 18.5"
+    stroke="#050505"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.7"
+  />
+  <path
+    d="M19 31L31 37.2L43 31"
+    stroke="#FFFFFF"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    opacity="0.72"
+  />
+  <path
+    d="M31 30.2V45.8"
+    stroke="#FFFFFF"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    opacity="0.65"
+  />
+  <path
+    d="M45.5 16.2L50.5 18.8"
+    stroke="#7A1E2D"
+    stroke-width="2.4"
+    stroke-linecap="round"
+  />
+</svg>
