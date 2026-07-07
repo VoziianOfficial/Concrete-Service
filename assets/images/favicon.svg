@@ -1,6 +1,4 @@
-<svg width="64" height="64" viewBox="0 0 62 54" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="favicon-title favicon-desc">
-  <title id="favicon-title">SlabWay favicon</title>
-  <desc id="favicon-desc">Concrete slab mark used as the site favicon</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 54" fill="none">
   <path
     d="M8 18.5L28.8 7.5C30.2 6.8 31.8 6.8 33.2 7.5L54 18.5L33.2 29.5C31.8 30.2 30.2 30.2 28.8 29.5L8 18.5Z"
     fill="#D8D4CC"
