@@ -1629,7 +1629,8 @@
 }
 
 .home-flip__card:hover .home-flip__inner,
-.home-flip__card:focus-within .home-flip__inner {
+.home-flip__card:focus-within .home-flip__inner,
+.home-flip__card.is-flipped .home-flip__inner {
     transform: rotateY(180deg);
 }
 
@@ -1648,6 +1649,8 @@
     padding: 18px;
     background: var(--color-black);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .home-flip__front::before {
@@ -1718,20 +1721,26 @@
 }
 
 .home-flip__back {
-    display: grid;
-    align-content: space-between;
-    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 14px;
     transform: rotateY(180deg);
+    overflow: hidden;
     border: 1px solid var(--color-border-dark);
     background:
         radial-gradient(circle at top right, rgba(122, 30, 45, 0.34), transparent 38%),
         var(--color-black);
     color: var(--color-white);
-    padding: 28px;
+    padding: 96px 28px 28px;
+    pointer-events: none;
 }
 
 .home-flip__back>i,
 .home-flip__back>svg {
+    position: absolute;
+    top: 26px;
+    right: 26px;
     width: 58px;
     height: 58px;
     color: var(--color-accent);
@@ -1739,20 +1748,37 @@
 }
 
 .home-flip__back h3 {
-    max-width: 280px;
+    max-width: 250px;
     font-size: clamp(26px, 2.2vw, 38px);
+    line-height: 1.02;
+    letter-spacing: -0.05em;
+    margin: 0;
 }
 
 .home-flip__back p {
-    max-width: 340px;
+    max-width: 100%;
     color: rgba(255, 255, 255, 0.72);
     font-size: 14px;
-    line-height: 1.65;
+    line-height: 1.58;
+    margin: 0;
 }
 
 .home-flip__back .btn {
     width: fit-content;
-    margin-top: 4px;
+    margin-top: auto;
+    min-height: 44px;
+}
+
+.home-flip__card:hover .home-flip__front,
+.home-flip__card:focus-within .home-flip__front,
+.home-flip__card.is-flipped .home-flip__front {
+    pointer-events: none;
+}
+
+.home-flip__card:hover .home-flip__back,
+.home-flip__card:focus-within .home-flip__back,
+.home-flip__card.is-flipped .home-flip__back {
+    pointer-events: auto;
 }
 
 @media (max-width: 1180px) {
@@ -1775,7 +1801,8 @@
     }
 
     .home-flip__card {
-        min-height: auto;
+        aspect-ratio: auto;
+        min-height: 390px;
     }
 
     .home-flip__face {
@@ -1783,7 +1810,7 @@
     }
 
     .home-flip__back {
-        padding: 24px;
+        padding: 88px 24px 24px;
     }
 
     .home-flip__label {
@@ -2667,3 +2694,4 @@
         height: 42px !important;
     }
 }
+

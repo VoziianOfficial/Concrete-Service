@@ -13,6 +13,7 @@
         initHomeScenarioSwiper();
         initHomeDualPhotoSwitch();
         initHomeNavigator();
+        initHomeFlipCards();
         initHomeHoverPanels();
         refreshIcons();
         refreshAOS();
@@ -388,7 +389,65 @@
         });
     })();
 
-    
+    function initHomeFlipCards() {
+        const cards = Array.from(document.querySelectorAll(".home-flip__card"));
+        if (!cards.length) return;
+
+        const closeCards = (activeCard = null) => {
+            cards.forEach((card) => {
+                if (card !== activeCard) {
+                    card.classList.remove("is-flipped");
+                    card.setAttribute("aria-expanded", "false");
+                }
+            });
+        };
+
+        cards.forEach((card) => {
+            const backButton = card.querySelector(".home-flip__back .btn");
+
+            card.setAttribute("tabindex", "0");
+            card.setAttribute("aria-expanded", "false");
+
+            card.addEventListener("click", (event) => {
+                const target = event.target;
+                if (!(target instanceof Element)) return;
+
+                if (target.closest(".home-flip__back .btn")) {
+                    return;
+                }
+
+                const shouldFlip = !card.classList.contains("is-flipped");
+                closeCards(card);
+                card.classList.toggle("is-flipped", shouldFlip);
+                card.setAttribute("aria-expanded", shouldFlip ? "true" : "false");
+            });
+
+            card.addEventListener("keydown", (event) => {
+                if (event.key === "Escape") {
+                    card.classList.remove("is-flipped");
+                    card.setAttribute("aria-expanded", "false");
+                    return;
+                }
+
+                if (event.key !== "Enter" && event.key !== " ") return;
+
+                if (backButton && document.activeElement === backButton) return;
+
+                event.preventDefault();
+                const shouldFlip = !card.classList.contains("is-flipped");
+                closeCards(card);
+                card.classList.toggle("is-flipped", shouldFlip);
+                card.setAttribute("aria-expanded", shouldFlip ? "true" : "false");
+            });
+        });
+
+        document.addEventListener("click", (event) => {
+            const target = event.target;
+            if (target instanceof Element && target.closest(".home-flip__card")) return;
+            closeCards();
+        });
+    }
+
 
     function initHomeHoverPanels() {
         const revealCards = document.querySelectorAll(".home-icon-reveal__card");
