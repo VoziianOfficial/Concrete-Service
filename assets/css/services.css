@@ -1100,3 +1100,183 @@
         min-height: 300px !important;
     }
 }
+
+/* ================================
+   Platform Standards — Blue Accent
+   ================================ */
+
+.platform-standards {
+    background: var(--color-white);
+    color: var(--color-black);
+    overflow: hidden;
+}
+
+.platform-standards__heading {
+    display: grid;
+    justify-items: center;
+    gap: 18px;
+    max-width: 1220px;
+    margin-inline: auto;
+    margin-bottom: clamp(62px, 7vw, 96px);
+    text-align: center;
+}
+
+.platform-standards__heading .section-kicker {
+    color: var(--color-blue);
+}
+
+.platform-standards__heading .section-kicker::before {
+    background: var(--color-blue);
+}
+
+.platform-standards__heading h2 {
+    max-width: 1120px;
+    color: var(--color-black);
+    font-size: clamp(42px, 5.4vw, 84px);
+    line-height: 0.98;
+    letter-spacing: -0.07em;
+}
+
+.platform-standards__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(54px, 6vw, 86px) clamp(42px, 5vw, 72px);
+}
+
+.platform-standards__item {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+}
+
+.platform-standards__icon {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    height: 92px;
+    margin-bottom: 26px;
+    border-radius: 50%;
+    background: var(--color-blue);
+    color: var(--color-white);
+    box-shadow:
+        0 22px 48px rgba(53, 168, 255, 0.24),
+        inset 0 -9px 18px rgba(5, 5, 5, 0.16);
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.platform-standards__icon::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    z-index: -1;
+    border-radius: inherit;
+    border: 1px solid rgba(53, 168, 255, 0.24);
+    opacity: 0;
+    transform: scale(0.82);
+    transition:
+        opacity var(--transition-base),
+        transform var(--transition-base);
+}
+
+.platform-standards__icon i,
+.platform-standards__icon svg {
+    width: 39px;
+    height: 39px;
+    stroke-width: 1.85;
+}
+
+.platform-standards__item:hover .platform-standards__icon {
+    transform: translateY(-7px) rotate(-4deg);
+    background: var(--color-blue-hover);
+    box-shadow:
+        0 28px 58px rgba(7, 59, 120, 0.28),
+        inset 0 -9px 18px rgba(5, 5, 5, 0.22);
+}
+
+.platform-standards__item:hover .platform-standards__icon::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.platform-standards__item h3 {
+    max-width: 360px;
+    color: var(--color-black);
+    font-size: clamp(23px, 2vw, 32px);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+}
+
+.platform-standards__item p {
+    max-width: 380px;
+    margin-top: 14px;
+    color: rgba(5, 5, 5, 0.62);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+    .platform-standards__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .platform-standards__heading {
+        justify-items: start;
+        text-align: left;
+        margin-bottom: 48px;
+    }
+
+    .platform-standards__heading h2 {
+        font-size: clamp(34px, 10vw, 52px);
+    }
+
+    .platform-standards__grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .platform-standards__item {
+        justify-items: start;
+        text-align: left;
+    }
+
+    .platform-standards__icon {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 20px;
+    }
+
+    .platform-standards__icon i,
+    .platform-standards__icon svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .platform-standards__item p {
+        max-width: none;
+    }
+}
+
+/* ================================
+   FIX — Platform Standards wider title + less top padding
+   ================================ */
+
+.platform-standards {
+    padding-top: clamp(48px, 5vw, 68px) !important;
+}
+
+.platform-standards__heading {
+    max-width: 1380px !important;
+    margin-bottom: clamp(58px, 6vw, 88px) !important;
+}
+
+.platform-standards__heading h2 {
+    max-width: 1320px !important;
+}
