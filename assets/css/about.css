@@ -1035,9 +1035,35 @@
     position: sticky !important;
     position: -webkit-sticky !important;
     top: calc(var(--header-height) + 36px) !important;
+    display: grid !important;
+    gap: 24px !important;
+    align-content: start !important;
     align-self: start !important;
     z-index: 5 !important;
     padding-right: clamp(28px, 4vw, 64px) !important;
+}
+
+.about-values__sticky .section-kicker {
+    margin-bottom: 0 !important;
+}
+
+.about-values__sticky h2 {
+    max-width: 12ch !important;
+    margin: 0 !important;
+}
+
+.about-values__sticky .lead {
+    max-width: 46ch !important;
+    margin: 0 !important;
+    color: rgba(255, 255, 255, 0.88) !important;
+    font-size: clamp(18px, 1.55vw, 21px) !important;
+    line-height: 1.8 !important;
+    text-wrap: pretty;
+}
+
+.about-values__sticky .aggregator-note {
+    max-width: 48ch !important;
+    margin-top: 4px !important;
 }
 
 /* правая белая часть */
@@ -1133,6 +1159,13 @@
         position: static !important;
         top: auto !important;
         padding-right: 0 !important;
+        gap: 20px !important;
+    }
+
+    .about-values__sticky h2,
+    .about-values__sticky .lead,
+    .about-values__sticky .aggregator-note {
+        max-width: none !important;
     }
 
     .about-values__cards {
