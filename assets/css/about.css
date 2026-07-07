@@ -547,7 +547,7 @@
 
 .about-provider-compare__visual {
     position: relative;
-    min-height: 570px;
+    min-height: 690px;
     overflow: hidden;
     border-radius: var(--radius-lg);
     background: var(--color-black);

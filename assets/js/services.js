@@ -884,6 +884,10 @@
             .replaceAll("'", "&#039;");
     }
 
+    function resolveAssetUrl(path) {
+        return new URL(String(path ?? ""), window.location.href).href;
+    }
+
     function icon(name) {
         return `<i data-lucide="${escapeHtml(name)}" aria-hidden="true"></i>`;
     }
@@ -898,6 +902,7 @@
 
     function hydrateServicePage(service) {
         const globalService = matchingGlobalService(service.id);
+        const serviceImageUrl = resolveAssetUrl(service.image);
 
         document.querySelectorAll("[data-service-title]").forEach((element) => {
             element.textContent = service.title;
@@ -916,9 +921,9 @@
         });
 
         document.querySelectorAll("[data-service-image-style]").forEach((element) => {
-            element.style.setProperty("--hero-image", `url('${service.image}')`);
-            element.style.setProperty("--service-overview-image", `url('${service.image}')`);
-            element.style.setProperty("--service-parallax-image", `url('${service.image}')`);
+            element.style.setProperty("--hero-image", `url('${serviceImageUrl}')`);
+            element.style.setProperty("--service-overview-image", `url('${serviceImageUrl}')`);
+            element.style.setProperty("--service-parallax-image", `url('${serviceImageUrl}')`);
         });
 
         const overviewMeta = document.querySelector("[data-service-overview-meta]");
@@ -1100,11 +1105,11 @@
             const key = photo.getAttribute("data-service-photo");
 
             if (key === "scope") {
-                photo.style.setProperty("--service-switch-image", `url('${service.image}')`);
+                photo.style.setProperty("--service-switch-image", `url('${resolveAssetUrl(service.image)}')`);
             }
 
             if (key === "finish") {
-                photo.style.setProperty("--service-switch-image", `url('assets/images/concrete-parallax.jpg')`);
+                photo.style.setProperty("--service-switch-image", `url('${resolveAssetUrl("assets/images/concrete-parallax.jpg")}')`);
             }
         });
 
@@ -1165,7 +1170,7 @@
             <a
               class="service-detail-related-card card-shine"
               href="${escapeHtml(service.url)}"
-              style="--related-image: url('${escapeHtml(service.image)}')"
+              style="--related-image: url('${escapeHtml(resolveAssetUrl(service.image))}')"
             >
               <span class="service-detail-related-card__icon">
                 ${icon(service.icon || "square-stack")}
