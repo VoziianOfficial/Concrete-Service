@@ -2101,3 +2101,176 @@
         clip-path: none;
     }
 }
+
+
+/* ================================
+   Home Proof Strip
+   ================================ */
+
+.home-proof-strip {
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 86px 0 43px;
+    overflow: hidden;
+}
+
+.home-proof-strip__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(34px, 5vw, 78px);
+    align-items: start;
+}
+
+.home-proof-strip__item {
+    display: grid;
+    grid-template-columns: 86px 1fr;
+    gap: 24px;
+    align-items: start;
+    min-height: 150px;
+}
+
+.home-proof-strip__icon {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background: var(--color-blue);
+    color: var(--color-white);
+    box-shadow:
+        0 20px 44px rgba(53, 168, 255, 0.24),
+        inset 0 -8px 18px rgba(5, 5, 5, 0.18);
+    transition:
+        transform var(--transition-base),
+        background var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.home-proof-strip__icon::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    z-index: -1;
+    border-radius: inherit;
+    border: 1px solid rgba(53, 168, 255, 0.24);
+    opacity: 0;
+    transform: scale(0.84);
+    transition:
+        opacity var(--transition-base),
+        transform var(--transition-base);
+}
+
+.home-proof-strip__icon svg,
+.home-proof-strip__icon i {
+    width: 38px;
+    height: 38px;
+    stroke-width: 1.9;
+}
+
+.home-proof-strip__item:hover .home-proof-strip__icon {
+    transform: translateY(-6px) rotate(-4deg);
+    background: var(--color-blue-hover);
+    box-shadow:
+        0 24px 54px rgba(7, 59, 120, 0.28),
+        inset 0 -8px 18px rgba(5, 5, 5, 0.22);
+}
+
+.home-proof-strip__item:hover .home-proof-strip__icon::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.home-proof-strip__content {
+    padding-top: 8px;
+}
+
+.home-proof-strip__content h3 {
+    font-size: clamp(22px, 1.8vw, 30px);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+}
+
+.home-proof-strip__content p {
+    max-width: 390px;
+    margin-top: 16px;
+    color: rgba(5, 5, 5, 0.62);
+    font-size: 16px;
+    line-height: 1.72;
+}
+
+@media (max-width: 1100px) {
+    .home-proof-strip__grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .home-proof-strip__item {
+        grid-template-columns: 78px 1fr;
+        max-width: 720px;
+    }
+
+    .home-proof-strip__icon {
+        width: 78px;
+        height: 78px;
+    }
+
+    .home-proof-strip__icon svg,
+    .home-proof-strip__icon i {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@media (max-width: 640px) {
+    .home-proof-strip {
+        padding: 64px 0 32px;
+    }
+
+    .home-proof-strip__item {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .home-proof-strip__icon {
+        width: 72px;
+        height: 72px;
+    }
+
+    .home-proof-strip__icon svg,
+    .home-proof-strip__icon i {
+        width: 31px;
+        height: 31px;
+    }
+
+    .home-proof-strip__content {
+        padding-top: 0;
+    }
+
+    .home-proof-strip__content p {
+        max-width: none;
+        font-size: 15px;
+    }
+}
+
+
+
+/* ================================
+   FIX — Smooth proof strip reveal
+   ================================ */
+
+.home-proof-strip__grid {
+    will-change: transform, opacity;
+}
+
+.home-proof-strip__item {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.home-proof-strip__icon {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
