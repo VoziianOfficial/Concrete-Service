@@ -1079,7 +1079,6 @@
     }
 
     .home-platform__grid,
-    .home-path__grid,
     .home-dual-photo__grid,
     .home-compare__grid,
     .home-navigator__grid,
@@ -1089,10 +1088,6 @@
 
     .home-platform__photos {
         min-height: 540px;
-    }
-
-    .home-path__sticky {
-        position: static;
     }
 
     .home-service-swiper__top,
@@ -1339,5 +1334,52 @@
 
     .home-dual-photo__panel {
         min-height: 270px;
+    }
+}
+
+/* ================================
+   FINAL GLOBAL-SAFE STICKY FIX
+   ================================ */
+
+.home-path,
+.home-path .container-wide,
+.home-path__grid {
+    overflow: visible !important;
+}
+
+.home-path__grid {
+    align-items: start !important;
+}
+
+@media (min-width: 769px) {
+    .home-path__grid {
+        display: grid !important;
+        grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1fr) !important;
+        gap: 58px !important;
+    }
+
+    .home-path__sticky,
+    .home-path__sticky.sticky-col {
+        position: sticky !important;
+        position: -webkit-sticky !important;
+        top: calc(var(--header-height) + 36px) !important;
+        align-self: start !important;
+        height: fit-content !important;
+        max-height: none !important;
+        overflow: visible !important;
+        transform: none !important;
+        will-change: auto !important;
+        z-index: 10 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-path__grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .home-path__sticky {
+        position: static !important;
+        top: auto !important;
     }
 }

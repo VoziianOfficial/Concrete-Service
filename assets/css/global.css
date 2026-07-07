@@ -54,7 +54,7 @@
 
 html {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: smooth;
 }
 
@@ -62,7 +62,7 @@ body {
     max-width: 100%;
     min-width: 320px;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: clip;
     background: var(--color-white);
     color: var(--color-black);
     font-family: var(--font-body);
@@ -70,6 +70,14 @@ body {
     line-height: 1.65;
     text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
+}
+
+@supports not (overflow: clip) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
 }
 
 body.menu-open {
@@ -1742,6 +1750,14 @@ h4,
     color: rgba(255, 255, 255, 0.72);
 }
 
+.sticky-col {
+    position: sticky;
+    position: -webkit-sticky;
+    top: calc(var(--header-height) + 36px);
+    align-self: start;
+    height: fit-content;
+}
+
 /* ================================
    Responsive
    ================================ */
@@ -1830,11 +1846,6 @@ h4,
     .grid-3,
     .grid-2 {
         grid-template-columns: 1fr;
-    }
-
-    .sticky-col {
-        position: static !important;
-        top: auto !important;
     }
 
     .parallax-section {
