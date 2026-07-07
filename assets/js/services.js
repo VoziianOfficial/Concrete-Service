@@ -838,8 +838,6 @@
         const service = serviceContent[serviceId] || serviceContent.driveways;
 
         hydrateServicePage(service);
-        initServiceSwiper(service);
-        initServicePhotoSwitch(service);
         initRelatedServices(service);
         injectFaqSchema(service);
         refreshIcons();
@@ -950,38 +948,6 @@
       `;
         }
 
-        const factorsGrid = document.querySelector("[data-service-factors-grid]");
-        if (factorsGrid) {
-            factorsGrid.innerHTML = service.factors
-                .map(
-                    (factor, index) => `
-            <article class="service-detail-factors__card" data-aos="fade-up" data-aos-delay="${(index % 3) * 70}">
-              ${icon(factor.icon)}
-              <h3>${escapeHtml(factor.title)}</h3>
-              <p>${escapeHtml(factor.text)}</p>
-            </article>
-          `
-                )
-                .join("");
-        }
-
-        const prepList = document.querySelector("[data-service-prep-list]");
-        if (prepList) {
-            prepList.innerHTML = service.prep
-                .map(
-                    (item) => `
-            <article class="service-detail-prep__item" data-aos="fade-up">
-              ${icon(item.icon)}
-              <span>
-                <strong>${escapeHtml(item.title)}</strong>
-                <span>${escapeHtml(item.text)}</span>
-              </span>
-            </article>
-          `
-                )
-                .join("");
-        }
-
         const faqAccordion = document.querySelector("[data-service-faq-accordion]");
         if (faqAccordion) {
             faqAccordion.innerHTML = service.faqs
@@ -1010,145 +976,6 @@
         }
 
         refreshIcons();
-    }
-
-    /* ================================
-       Service Situation Swiper
-       ================================ */
-
-    function initServiceSwiper(service) {
-        const swiperElement = document.querySelector("[data-service-detail-swiper]");
-        const wrapper = document.querySelector("[data-service-detail-swiper-wrapper]");
-
-        if (!swiperElement || !wrapper) return;
-
-        wrapper.innerHTML = service.slides
-            .map(
-                (slide) => `
-          <div class="swiper-slide">
-            <article class="service-detail-slide">
-              <div>
-                <div class="service-detail-slide__top">
-                  <span class="service-detail-slide__tag">${escapeHtml(slide.tag)}</span>
-                  ${icon(slide.icon)}
-                </div>
-
-                <h3>${escapeHtml(slide.title)}</h3>
-                <p>${escapeHtml(slide.text)}</p>
-              </div>
-
-              <a class="icon-link" href="contact.html">
-                Start request
-                ${icon("arrow-right")}
-              </a>
-            </article>
-          </div>
-        `
-            )
-            .join("");
-
-        const section = swiperElement.closest(".service-detail-swiper");
-        const pagination = section ? section.querySelector("[data-service-detail-swiper-pagination]") : null;
-        const nextButton = section ? section.querySelector("[data-service-detail-swiper-next]") : null;
-        const prevButton = section ? section.querySelector("[data-service-detail-swiper-prev]") : null;
-
-        if (window.SlabWaySwiper) {
-            window.SlabWaySwiper.create(swiperElement, {
-                loop: true,
-                spaceBetween: 18,
-                slidesPerView: 1,
-                pagination: pagination
-                    ? {
-                        el: pagination,
-                        type: "fraction"
-                    }
-                    : undefined,
-                navigation:
-                    nextButton && prevButton
-                        ? {
-                            nextEl: nextButton,
-                            prevEl: prevButton
-                        }
-                        : undefined,
-                breakpoints: {
-                    640: {
-                        slidesPerView: 1.08
-                    },
-                    768: {
-                        slidesPerView: 2
-                    },
-                    1120: {
-                        slidesPerView: 3
-                    }
-                }
-            });
-        }
-
-        refreshIcons();
-    }
-
-    /* ================================
-       Photo Switch
-       ================================ */
-
-    function initServicePhotoSwitch(service) {
-        const section = document.querySelector("[data-service-photo-switch]");
-        if (!section) return;
-
-        const photos = Array.from(section.querySelectorAll("[data-service-photo]"));
-        const chips = Array.from(section.querySelectorAll("[data-service-photo-chip]"));
-        const text = section.querySelector("[data-service-photo-text]");
-
-        if (!photos.length || !chips.length) return;
-
-        photos.forEach((photo) => {
-            const key = photo.getAttribute("data-service-photo");
-
-            if (key === "scope") {
-                photo.style.setProperty("--service-switch-image", `url('${resolveAssetUrl(service.image)}')`);
-            }
-
-            if (key === "finish") {
-                photo.style.setProperty("--service-switch-image", `url('${resolveAssetUrl("assets/images/concrete-parallax.jpg")}')`);
-            }
-        });
-
-        const activate = (key) => {
-            chips.forEach((chip) => {
-                chip.classList.toggle(
-                    "is-active",
-                    chip.getAttribute("data-service-photo-chip") === key
-                );
-            });
-
-            photos.forEach((photo) => {
-                photo.classList.toggle(
-                    "is-active",
-                    photo.getAttribute("data-service-photo") === key
-                );
-            });
-
-            if (text && service.photoText[key]) {
-                text.textContent = service.photoText[key];
-            }
-        };
-
-        chips.forEach((chip) => {
-            const key = chip.getAttribute("data-service-photo-chip");
-
-            chip.addEventListener("mouseenter", () => activate(key));
-            chip.addEventListener("focus", () => activate(key));
-            chip.addEventListener("click", () => activate(key));
-        });
-
-        photos.forEach((photo) => {
-            const key = photo.getAttribute("data-service-photo");
-
-            photo.addEventListener("mouseenter", () => activate(key));
-            photo.addEventListener("focusin", () => activate(key));
-        });
-
-        activate("scope");
     }
 
     /* ================================
