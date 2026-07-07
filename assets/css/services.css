@@ -58,11 +58,12 @@
 }
 
 .service-detail-overview__meta-card {
-    min-height: 150px;
+    position: relative;
+    min-height: 132px;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     background: var(--color-off-white);
-    padding: 22px;
+    padding: 20px 66px 18px 20px;
     transition:
         transform var(--transition-base),
         border-color var(--transition-base),
@@ -79,10 +80,12 @@
 
 .service-detail-overview__meta-card i,
 .service-detail-overview__meta-card svg {
+    position: absolute;
+    top: 18px;
+    right: 18px;
     width: 34px;
     height: 34px;
     color: var(--color-accent);
-    margin-bottom: 16px;
     stroke-width: 1.45;
 }
 
@@ -752,6 +755,11 @@
     .service-detail-prep__item,
     .service-detail-slide {
         padding: 22px;
+    }
+
+    .service-detail-overview__meta-card {
+        min-height: 124px;
+        padding: 18px 60px 16px 18px;
     }
 
     .service-detail-prep__item {

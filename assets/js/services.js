@@ -914,8 +914,12 @@
 
         document.querySelectorAll("[data-service-image-style]").forEach((element) => {
             element.style.setProperty("--hero-image", `url('${serviceImageUrl}')`);
-            element.style.setProperty("--service-overview-image", `url('${serviceImageUrl}')`);
             element.style.setProperty("--service-parallax-image", `url('${serviceImageUrl}')`);
+
+            const overviewImage = element.getAttribute("data-service-overview-image");
+            const overviewImageUrl = overviewImage ? resolveAssetUrl(overviewImage) : serviceImageUrl;
+
+            element.style.setProperty("--service-overview-image", `url('${overviewImageUrl}')`);
         });
 
         const overviewMeta = document.querySelector("[data-service-overview-meta]");
