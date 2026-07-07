@@ -418,6 +418,29 @@
         window.addEventListener("resize", updateParallax);
     })();
 
+    (function () {
+        const slider = document.querySelector(".home-split-slider");
+
+        if (!slider || typeof Swiper === "undefined") return;
+
+        new Swiper(slider, {
+            slidesPerView: 1,
+            speed: 850,
+            loop: true,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
+            navigation: {
+                nextEl: ".home-split-slider__next",
+                prevEl: ".home-split-slider__prev"
+            },
+            keyboard: {
+                enabled: true
+            }
+        });
+    })();
+
     /* ================================
        Icon Reveal / Hover Accessibility
        ================================ */
