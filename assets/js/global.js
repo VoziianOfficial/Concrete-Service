@@ -32,9 +32,10 @@
         renderFooter();
         renderCookieBanner();
 
-        applyGlobalBusinessConfig();
         injectServiceLists();
         hydratePrefooterCta();
+
+        applyGlobalBusinessConfig();
 
         initStickyHeader();
         initActiveNavigation();
@@ -352,6 +353,96 @@
     
 
     function applyGlobalBusinessConfig() {
+        const cfg = window.SLABWAY_CONFIG || {};
+
+        const defaults = {
+            brandName: "SlabWay",
+            tagline: "Independent Concrete Matching Platform",
+            companyName: "SlabWay Matching Group LLC",
+            companyId: "SWM-482710",
+            address: "1180 Concrete Market Lane, Suite 240, Denver, CO 80202",
+            cityLine: "Denver, CO 80202",
+            phoneDisplay: "+1 (555) 024-6180",
+            phoneRaw: "+15550246180",
+            phoneHref: "tel:+15550246180",
+            email: "hello@slabway.com",
+            emailHref: "mailto:hello@slabway.com",
+            serviceArea: "Selected local markets across participating service areas"
+        };
+
+        const next = {
+            brandName: get("brand.name", defaults.brandName),
+            tagline: get("brand.tagline", defaults.tagline),
+            shortDescription: get("brand.shortDescription", ""),
+            companyName: get("company.name", defaults.companyName),
+            companyId: get("company.companyId", defaults.companyId),
+            address: get("company.address", defaults.address),
+            city: get("company.city", ""),
+            state: get("company.state", ""),
+            zip: get("company.zip", ""),
+            country: get("company.country", ""),
+            serviceArea: get("company.serviceArea", defaults.serviceArea),
+            mapHref: get("company.mapHref", "#"),
+            phoneDisplay: get("contact.phoneDisplay", defaults.phoneDisplay),
+            phoneRaw: get("contact.phoneRaw", defaults.phoneRaw),
+            phoneHref: get("contact.phoneHref", defaults.phoneHref),
+            phoneButtonText: get("contact.phoneButtonText", "Start Request"),
+            email: get("contact.email", defaults.email),
+            emailHref: get("contact.emailHref", defaults.emailHref),
+            footerDescription: get("footer.description", ""),
+            footerDisclaimer: get("footer.shortDisclaimer", ""),
+            copyright: get("footer.copyright", ""),
+            legalDisclaimer: get("legal.disclaimer", ""),
+            platformNotice: get("legal.platformNotice", ""),
+            requestNotice: get("legal.requestNotice", "")
+        };
+
+        const nextCityLine = [next.city, [next.state, next.zip].filter(Boolean).join(" ")]
+            .filter(Boolean)
+            .join(", ");
+
+        const replacements = [
+            [defaults.companyName, next.companyName],
+            [defaults.companyId, next.companyId],
+            [defaults.address, next.address],
+            [defaults.cityLine, nextCityLine],
+            [defaults.phoneDisplay, next.phoneDisplay],
+            [defaults.phoneRaw, next.phoneRaw],
+            [defaults.phoneHref, next.phoneHref],
+            [defaults.emailHref, next.emailHref],
+            [defaults.email, next.email],
+            [defaults.serviceArea, next.serviceArea],
+            [defaults.tagline, next.tagline],
+            [defaults.brandName, next.brandName]
+        ]
+            .filter(([from, to]) => from && to && from !== to)
+            .sort((a, b) => b[0].length - a[0].length);
+
+        const replaceString = (value) => {
+            if (!value || typeof value !== "string") return value;
+
+            return replacements.reduce((result, [from, to]) => {
+                return result.split(from).join(to);
+            }, value);
+        };
+
+        const setTextIfValue = (selector, value) => {
+            if (!value) return;
+
+            document.querySelectorAll(selector).forEach((element) => {
+                element.textContent = value;
+            });
+        };
+
+        const setHrefIfValue = (selector, value) => {
+            if (!value) return;
+
+            document.querySelectorAll(selector).forEach((element) => {
+                element.setAttribute("href", value);
+            });
+        };
+
+        /* data-config text injection */
         document.querySelectorAll(selectors.configText).forEach((element) => {
             const path = element.getAttribute("data-config");
             const value = get(path);
@@ -361,6 +452,7 @@
             }
         });
 
+        /* data-config href injection */
         document.querySelectorAll(selectors.configHref).forEach((element) => {
             const path = element.getAttribute("data-config-href");
             const value = get(path);
@@ -370,24 +462,161 @@
             }
         });
 
-        document.querySelectorAll(selectors.telLink).forEach((link) => {
-            const href = get("contact.phoneHref");
-            if (href) link.setAttribute("href", href);
+        /* direct common data selectors */
+        setTextIfValue("[data-brand-name]", next.brandName);
+        setTextIfValue("[data-brand-tagline]", next.tagline);
+        setTextIfValue("[data-company-name]", next.companyName);
+        setTextIfValue("[data-company-id]", next.companyId);
+        setTextIfValue("[data-company-address]", next.address);
+        setTextIfValue("[data-company-service-area]", next.serviceArea);
+        setTextIfValue("[data-phone-display]", next.phoneDisplay);
+        setTextIfValue("[data-email-display]", next.email);
+
+        setHrefIfValue("[data-phone-href]", next.phoneHref);
+        setHrefIfValue("[data-email-href]", next.emailHref);
+        setHrefIfValue("[data-map-href]", next.mapHref);
+
+        /* tel links */
+        document.querySelectorAll('[data-tel-link], a[href^="tel:"]').forEach((link) => {
+            link.setAttribute("href", next.phoneHref);
+
+            const currentText = link.textContent.trim();
+            const shouldReplaceText = currentText && replacements.some(([from]) => currentText.includes(from));
+
+            if (shouldReplaceText) {
+                link.textContent = replaceString(currentText);
+            }
         });
 
-        document.querySelectorAll(selectors.emailLink).forEach((link) => {
-            const href = get("contact.emailHref");
-            if (href) link.setAttribute("href", href);
+        /* email links */
+        document.querySelectorAll('[data-email-link], a[href^="mailto:"]').forEach((link) => {
+            link.setAttribute("href", next.emailHref);
+
+            const currentText = link.textContent.trim();
+            const shouldReplaceText = currentText && replacements.some(([from]) => currentText.includes(from));
+
+            if (shouldReplaceText) {
+                link.textContent = replaceString(currentText);
+            }
         });
 
-        document.querySelectorAll(selectors.mapLink).forEach((link) => {
-            const href = get("company.mapHref");
-            if (href) link.setAttribute("href", href);
+        /* map links */
+        document.querySelectorAll('[data-map-link], a[href*="maps.google"], a[href*="google.com/maps"]').forEach((link) => {
+            link.setAttribute("href", next.mapHref);
+            link.setAttribute("target", "_blank");
+            link.setAttribute("rel", "noopener");
         });
+
+        /* contact forms */
+        document.querySelectorAll("form").forEach((form) => {
+            const endpoint = get("form.endpoint", "");
+            const method = get("form.method", "POST");
+
+            if (endpoint && form.matches("[data-contact-form], .contact-form__form, form[action='contact.php']")) {
+                form.setAttribute("action", endpoint);
+                form.setAttribute("method", method);
+            }
+
+            form.querySelectorAll('input[name="recipientEmail"], input[data-recipient-email]').forEach((input) => {
+                input.value = get("form.recipientEmail", next.email);
+            });
+        });
+
+        /* page title + meta */
+        document.title = replaceString(document.title);
+
+        document
+            .querySelectorAll('meta[name="description"], meta[property="og:title"], meta[property="og:description"], meta[name="twitter:title"], meta[name="twitter:description"]')
+            .forEach((meta) => {
+                const content = meta.getAttribute("content");
+                if (content) {
+                    meta.setAttribute("content", replaceString(content));
+                }
+            });
+
+        /* attributes */
+        document
+            .querySelectorAll("[aria-label], [alt], [title], [placeholder]")
+            .forEach((element) => {
+                ["aria-label", "alt", "title", "placeholder"].forEach((attr) => {
+                    const value = element.getAttribute(attr);
+                    if (value) {
+                        element.setAttribute(attr, replaceString(value));
+                    }
+                });
+            });
+
+        /* visible hardcoded text replacement across sections */
+        replaceTextNodes(document.body);
 
         document.querySelectorAll("[data-current-year]").forEach((element) => {
             element.textContent = String(new Date().getFullYear());
         });
+
+        startConfigHydrationObserver();
+
+        function replaceTextNodes(root) {
+            if (!root) return;
+
+            const walker = document.createTreeWalker(
+                root,
+                NodeFilter.SHOW_TEXT,
+                {
+                    acceptNode(node) {
+                        const parent = node.parentElement;
+
+                        if (!parent) return NodeFilter.FILTER_REJECT;
+
+                        if (
+                            parent.closest(
+                                "script, style, noscript, svg, canvas, textarea, input, select, option"
+                            )
+                        ) {
+                            return NodeFilter.FILTER_REJECT;
+                        }
+
+                        const value = node.nodeValue;
+
+                        if (!value || !replacements.some(([from]) => value.includes(from))) {
+                            return NodeFilter.FILTER_REJECT;
+                        }
+
+                        return NodeFilter.FILTER_ACCEPT;
+                    }
+                }
+            );
+
+            const nodes = [];
+
+            while (walker.nextNode()) {
+                nodes.push(walker.currentNode);
+            }
+
+            nodes.forEach((node) => {
+                node.nodeValue = replaceString(node.nodeValue);
+            });
+        }
+
+        function startConfigHydrationObserver() {
+            if (window.__slabwayConfigHydrationObserverStarted || !document.body) return;
+
+            window.__slabwayConfigHydrationObserverStarted = true;
+
+            const observer = new MutationObserver(
+                debounce(() => {
+                    if (window.__slabwayConfigHydrating) return;
+
+                    window.__slabwayConfigHydrating = true;
+                    applyGlobalBusinessConfig();
+                    window.__slabwayConfigHydrating = false;
+                }, 120)
+            );
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        }
     }
 
     window.applyGlobalBusinessConfig = applyGlobalBusinessConfig;

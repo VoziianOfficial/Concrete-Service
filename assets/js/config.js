@@ -1,13 +1,13 @@
 window.SLABWAY_CONFIG = {
     brand: {
-        name: "SlabWay",
+        name: "Concrete",
         tagline: "Independent Concrete Matching Platform",
         shortDescription:
-            "SlabWay helps homeowners organize concrete project details and compare available local provider options before deciding how to continue."
+            "Concrete helps homeowners organize concrete project details and compare available local provider options before deciding how to continue."
     },
 
     company: {
-        name: "SlabWay Matching Group LLC",
+        name: "Concrete Matching Group LLC",
         companyId: "SWM-482710",
         address: "1180 Concrete Market Lane, Suite 240, Denver, CO 80202",
         city: "Denver",
