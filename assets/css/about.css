@@ -105,6 +105,8 @@
 
 .about-story__photo {
     position: absolute;
+    margin: 0;
+    max-width: 100%;
     overflow: hidden;
     border-radius: var(--radius-lg);
     background: var(--color-concrete);
@@ -895,10 +897,15 @@
         display: grid;
         gap: 14px;
         min-height: auto;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .about-story__photo {
         position: relative;
+        width: 100%;
+        max-width: 100%;
     }
 
     .about-story__photo--one,
@@ -944,6 +951,10 @@
 }
 
 @media (max-width: 480px) {
+    .about-story__photos {
+        gap: 12px;
+    }
+
     .about-statement__panel {
         padding: 26px;
     }
@@ -1413,5 +1424,97 @@
 
     .home-precision__feature p {
         max-width: none;
+    }
+}
+
+
+/* ================================
+   FIX — About Editorial cards compact + icon top right
+   ================================ */
+
+.about-editorial__card {
+    position: relative !important;
+    min-height: 250px !important;
+    display: grid !important;
+    align-content: end !important;
+    padding: 86px 26px 26px !important;
+}
+
+.about-editorial__card i,
+.about-editorial__card svg {
+    position: absolute !important;
+    top: 24px !important;
+    right: 24px !important;
+    width: 52px !important;
+    height: 52px !important;
+    margin: 0 !important;
+    color: var(--color-accent) !important;
+    stroke-width: 1.35 !important;
+    transition:
+        transform var(--transition-base),
+        color var(--transition-base),
+        opacity var(--transition-base);
+}
+
+.about-editorial__card:hover i,
+.about-editorial__card:hover svg {
+    transform: translateY(-4px) scale(1.04);
+    color: var(--color-blue) !important;
+}
+
+.about-editorial__card h3 {
+    max-width: 300px !important;
+    font-size: clamp(23px, 2vw, 32px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.055em !important;
+}
+
+.about-editorial__card p {
+    max-width: 330px !important;
+    margin-top: 12px !important;
+    font-size: 14px !important;
+    line-height: 1.58 !important;
+}
+
+.about-editorial__card span {
+    margin-top: 18px !important;
+}
+
+/* вторая тёмная карточка — сохраняем премиальный контраст */
+.about-editorial__card:nth-child(2) i,
+.about-editorial__card:nth-child(2) svg {
+    color: var(--color-blue) !important;
+}
+
+.about-editorial__card:nth-child(2):hover i,
+.about-editorial__card:nth-child(2):hover svg {
+    color: var(--color-accent) !important;
+}
+
+@media (max-width: 768px) {
+    .about-editorial__card {
+        min-height: 230px !important;
+        padding: 78px 24px 24px !important;
+    }
+
+    .about-editorial__card i,
+    .about-editorial__card svg {
+        top: 22px !important;
+        right: 22px !important;
+        width: 46px !important;
+        height: 46px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-editorial__card {
+        min-height: 220px !important;
+        padding: 74px 22px 22px !important;
+    }
+
+    .about-editorial__card i,
+    .about-editorial__card svg {
+        width: 42px !important;
+        height: 42px !important;
     }
 }
