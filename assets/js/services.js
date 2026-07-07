@@ -1057,6 +1057,28 @@
         refreshIcons();
     }
 
+    (function () {
+        const slider = document.querySelector(".service-insight__slider");
+        if (!slider || typeof Swiper === "undefined") return;
+
+        new Swiper(slider, {
+            slidesPerView: 1,
+            speed: 850,
+            loop: true,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
+            navigation: {
+                nextEl: ".service-insight__next",
+                prevEl: ".service-insight__prev"
+            },
+            keyboard: {
+                enabled: true
+            }
+        });
+    })();
+
     /* ================================
        FAQ Schema
        ================================ */
